@@ -8,8 +8,8 @@ const NavBar = () => {
   const loggedInIcons = <>{currentUser?.username}</>;
   const loggedOutIcons = (
     <>
-      <NavLink to="/signin">Sign In</NavLink>
-      <NavLink to="/signup">Sign Up</NavLink>
+      <NavLink to="/signin"><i className="fas fa-sign-in-alt"></i>Sign In</NavLink>
+      <NavLink to="/signup"><i className="fas fa-user-plus"></i>Sign Up</NavLink>
     </>
   );
   return (
@@ -18,8 +18,8 @@ const NavBar = () => {
         <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <NavLink to="/">Home</NavLink>
+          <Nav className="ml-auto">
+            <NavLink to="/"><i className="fas fa-home"></i>Home</NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>
