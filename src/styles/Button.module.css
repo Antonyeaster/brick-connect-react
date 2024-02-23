@@ -1,0 +1,17 @@
+.Button {
+  font-size: 0.8rem;
+  align-self: center;
+  border-radius: 100px;
+  border-color: transparent;
+  padding: 4px 10px;
+  margin-left: 2px;
+  margin-right: 2px;
+  min-width: 75px;
+}
+
+.BabyBlue,
+.BlueOutline:hover,
+.Bright:hover {
+  background-color: #06cdf0;
+  color: #ffffff;
+}
