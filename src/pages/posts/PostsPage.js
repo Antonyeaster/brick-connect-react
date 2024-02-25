@@ -32,7 +32,12 @@ function PostsPage({ message, filter = "" }) {
     };
 
     setHasLoaded(false);
-    fetchPosts();
+    const searchTimer = setTimeout(() => {
+      fetchPosts();
+    }, 1000);
+    return () => {
+      clearTimeout(searchTimer);
+    };
   }, [filter, query, pathname]);
 
   return (
