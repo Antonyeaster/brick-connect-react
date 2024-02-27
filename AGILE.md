@@ -4,6 +4,7 @@
   * [Overview](#overview)
   * [Sprint Notes](#sprint-notes)
     * [Sprint 1](#sprint-1)
+    * [Sprint 2](#sprint-2)
   * [Milestones](#milestones)
   * [Learning Outcomes](#learning-outcomes)
 
