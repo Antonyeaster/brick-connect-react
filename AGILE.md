@@ -25,6 +25,20 @@ I can confirm all tasks within this sprint are completed and before the schedule
 
 <hr>
 
+### *Sprint 2*
+
+In this sprint the main goal was to get posts rendering with CRUD functionality. I gave myself a week to make these changes.
+
+The first task was get a post form added with the ability to add a title, description and image. Once the post is created, I opted to list my posts and use infinite scroll to keep the user scrolling. I also created a post page which is entered by clicking the post. Once on the post page I added the functionality to delete the post or edit the post if authenticated. This concludes the CRUD functionality with create, read, update and delete.
+
+I added extra options to my navigation, being feed, liked, and favourited. This is the point I ran into problems with my liked page and feed page were all showing the same posts in the same order. After making adjustments to my posts in the backend API, I was able to use Django filters to fix this issue. The favourited and feed nav link will be wired up in a different sprint. 
+
+I also added the option for a user to log out and see that they are logged in by seeing their profile image. The profile is yet to be wired up and will be completed in a future sprint.
+
+All tasks were completed ahead of schedule with a day to spare.
+
+<hr>
+
 ## **Milestones**
 
 <hr>
