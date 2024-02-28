@@ -32,6 +32,7 @@ export const EditDeleteDropdown = ({handleEdit, handleDelete}) => {
           onClick={handleEdit}
           aria-label="edit"
         >
+          <p>Edit</p>
           <i className="fas fa-edit" />
         </Dropdown.Item>
         <Dropdown.Item
@@ -39,6 +40,7 @@ export const EditDeleteDropdown = ({handleEdit, handleDelete}) => {
           onClick={handleDelete}
           aria-label="delete"
         >
+          <p>Delete</p>
           <i className="fas fa-trash-alt" />
         </Dropdown.Item>
       </Dropdown.Menu>
