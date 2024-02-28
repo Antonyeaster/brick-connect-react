@@ -1,6 +1,6 @@
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
-import styles from "../styles/EditDeletePostDropdown.module.css";
+import styles from "../styles/EditDeleteDropdown.module.css";
 
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
@@ -15,7 +15,7 @@ const TreeDots = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
-export const EditDeletePostDropdown = ({handleEdit, handleDelete}) => {
+export const EditDeleteDropdown = ({handleEdit, handleDelete}) => {
   return (
     <Dropdown className="ml-auto" drop="left">
       <Dropdown.Toggle

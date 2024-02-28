@@ -5,7 +5,7 @@ import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
-import { EditDeletePostDropdown } from "../../components/EditDeletePostDropdown";
+import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
 
 const Post = (props) => {
   const {
@@ -85,7 +85,7 @@ const Post = (props) => {
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
             {is_owner && postPage && (
-              <EditDeletePostDropdown
+              <EditDeleteDropdown
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
               />
