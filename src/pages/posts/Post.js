@@ -21,7 +21,7 @@ const Post = (props) => {
     image,
     updated_at,
     postPage,
-    favourited,
+    favourite_id,
     setPosts,
   } = props;
 
@@ -71,6 +71,44 @@ const Post = (props) => {
       }));
     } catch (err) {
       console.log(err);
+    }
+  };
+
+  const handleFavourite = async () => {
+    try {
+      const { data } = await axiosRes.post("/favourites/", { post: id });
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? {
+                ...post,
+                favourite_id: data.id,
+              }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleRemoveFavourite = async () => {
+    try {
+      await axiosRes.delete(`/favourites/${favourite_id}/`);
+      setPosts((prevPost) => ({
+        ...prevPost,
+        results: prevPost.results.map((post) => {
+          return post.id === id
+            ? {
+                ...post,
+                favourite_id: null,
+              }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err)
     }
   };
 
@@ -135,12 +173,12 @@ const Post = (props) => {
             >
               <i className="fa-regular fa-star" />
             </OverlayTrigger>
-          ) : favourited ? (
-            <span onClick={() => {}}>
-              <i className={`fa-solid fa-star ${styles.Icon}`} />
+          ) : favourite_id ? (
+            <span onClick={handleRemoveFavourite}>
+              <i className={`fa-regular fa-star ${styles.Icon}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={() => {}}>
+            <span onClick={handleFavourite}>
               <i className={`fa-regular fa-star ${styles.IconOutline}`} />
             </span>
           ) : (
