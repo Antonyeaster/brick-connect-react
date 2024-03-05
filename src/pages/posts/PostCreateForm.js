@@ -79,10 +79,11 @@ function PostCreateForm() {
         />
       </Form.Group>
       {errors.title?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        ))}
+
       <Form.Group>
         <Form.Label>Description</Form.Label>
         <Form.Control
@@ -101,6 +102,11 @@ function PostCreateForm() {
 
       <Button onClick={() => history.goBack()}>cancel</Button>
       <Button type="submit">create</Button>
+      {errors.image?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
     </div>
   );
 
@@ -135,17 +141,13 @@ function PostCreateForm() {
                 </Form.Label>
               )}
               <Form.File
+                className={styles.ChooseImage}
                 id="image-upload"
                 accept="image/*"
                 onChange={handleChangeImage}
                 ref={imageInput}
               />
             </Form.Group>
-            {errors.image?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>
-                {message}
-              </Alert>
-            ))}
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
