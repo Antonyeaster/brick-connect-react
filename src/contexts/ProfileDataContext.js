@@ -69,7 +69,7 @@ export const ProfileDataProvider = ({ children }) => {
       try {
         // Requesting profiles then ordered by follow count
         const { data } = await axiosReq.get(
-          "/profiles/?ordering=followers_count"
+          "/profiles/?ordering=-followers_count"
         );
         setProfileData((prevState) => ({
           ...prevState,
