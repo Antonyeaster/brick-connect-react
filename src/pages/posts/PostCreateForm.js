@@ -23,9 +23,10 @@ function PostCreateForm() {
     title: "",
     description: "",
     image: "",
+    category: "",
   });
 
-  const { title, description, image } = postData;
+  const { title, description, image, category } = postData;
 
   const imageInput = useRef(null);
 
@@ -54,6 +55,7 @@ function PostCreateForm() {
 
     formData.append("title", title);
     formData.append("description", description);
+    formData.append("category", category);
     formData.append("image", imageInput.current.files[0]);
 
     try {
@@ -79,10 +81,28 @@ function PostCreateForm() {
         />
       </Form.Group>
       {errors.title?.map((message, idx) => (
-          <Alert variant="warning" key={idx}>
-            {message}
-          </Alert>
-        ))}
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Category</Form.Label>
+        <Form.Control
+          as="select"
+          name="category"
+          value={category}
+          onChange={handleChange}
+        >
+          <option value="full set builds">Full Set Builds</option>
+          <option value="diy builds">DIY Builds</option>
+        </Form.Control>
+      </Form.Group>
+      {errors.category?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 
       <Form.Group>
         <Form.Label>Description</Form.Label>

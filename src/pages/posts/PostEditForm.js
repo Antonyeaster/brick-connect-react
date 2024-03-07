@@ -18,9 +18,10 @@ function PostEditForm() {
     title: "",
     description: "",
     image: "",
+    category: "",
   });
 
-  const { title, description, image } = postData;
+  const { title, description, image, category } = postData;
 
   const imageInput = useRef(null);
 
@@ -31,10 +32,10 @@ function PostEditForm() {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}/`);
-        const { title, description, image, is_owner } = data;
+        const { title, description, image, is_owner, category } = data;
 
         is_owner
-          ? setPostData({ title, description, image })
+          ? setPostData({ title, description, image, category })
           : history.push("/");
       } catch (err) {
         console.log(err);
@@ -67,6 +68,7 @@ function PostEditForm() {
 
     formData.append("title", title);
     formData.append("description", description);
+    formData.append("category", category);
 
     if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
@@ -99,6 +101,25 @@ function PostEditForm() {
           {message}
         </Alert>
       ))}
+
+      <Form.Group>
+        <Form.Label>Category</Form.Label>
+        <Form.Control
+          as="select"
+          name="category"
+          value={category}
+          onChange={handleChange}
+        >
+          <option value="full set builds">Full Set Builds</option>
+          <option value="diy builds">DIY Builds</option>
+        </Form.Control>
+      </Form.Group>
+      {errors.category?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
       <Form.Group>
         <Form.Label>Description</Form.Label>
         <Form.Control

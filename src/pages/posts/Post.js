@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Badge, Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -23,11 +23,21 @@ const Post = (props) => {
     postPage,
     favourite_id,
     setPosts,
+    category,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
+
+  const camelcase = (str) => {
+    return str
+      .split(" ")
+      .map((category) => {
+        return category.charAt(0).toUpperCase() + category.slice(1);
+      })
+      .join(" ");
+  };
 
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
@@ -108,7 +118,7 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   };
 
@@ -188,6 +198,13 @@ const Post = (props) => {
             >
               <i className="fa-regular fa-star" />
             </OverlayTrigger>
+          )}
+          {category && (
+            <h3>
+              <Badge pill variant="success">
+                {camelcase(category)}
+              </Badge>
+            </h3>
           )}
         </div>
       </Card.Body>
