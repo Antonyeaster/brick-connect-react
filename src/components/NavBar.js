@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import {
   useCurrentUser,
@@ -62,8 +62,21 @@ const NavBar = () => {
   return (
     <Navbar bg="light" expand="md" fixed="top">
       <Container>
-        <Navbar.Brand href="#home">Brick Connect</Navbar.Brand>
+        <NavLink to="/">
+          <Navbar.Brand>Brick Connect</Navbar.Brand>
+        </NavLink>
         {currentUser && addNewPost}
+        <NavDropdown title="Category" id="basic-nav-dropdown">
+          <NavDropdown.Item>
+            <NavLink to="/category/full%20set%20builds">
+              Full Set Builds
+            </NavLink>
+          </NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item>
+            <NavLink to="/category/diy%20builds">DIY Builds</NavLink>
+          </NavDropdown.Item>
+        </NavDropdown>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">

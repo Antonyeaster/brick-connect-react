@@ -34,7 +34,11 @@ const Post = (props) => {
     return str
       .split(" ")
       .map((category) => {
+        if (category.toLowerCase() === 'diy') {
+          return 'DIY';
+        } else {
         return category.charAt(0).toUpperCase() + category.slice(1);
+        }
       })
       .join(" ");
   };
