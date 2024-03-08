@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CommentEditForm from "./CommentEditForm";
 import styles from "../../styles/Comment.module.css";
-import { Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Button, Media, Modal, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
@@ -25,10 +25,19 @@ const Comment = (props) => {
   // Toggles the edit form, set to false until
   // requested then the state changes to true
   const [showEditForm, setShowEditForm] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const currentUser = useCurrentUser();
   // Checking current user is post owner
   const is_owner = currentUser?.username === owner;
+
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   const handleCommentLike = async () => {
     try {
@@ -37,7 +46,11 @@ const Comment = (props) => {
         ...prevComments,
         results: prevComments.results.map((comment) => {
           return comment.id === id
-            ? { ...comment, commentLikeCount: comment.commentLikeCount + 1, commentLike_id: data.id }
+            ? {
+                ...comment,
+                commentLikeCount: comment.commentLikeCount + 1,
+                commentLike_id: data.id,
+              }
             : comment;
         }),
       }));
@@ -59,6 +72,7 @@ const Comment = (props) => {
           },
         ],
       }));
+      handleCloseModal();
       // Removes the comment from the page
       setComments((prevComments) => ({
         ...prevComments,
@@ -96,7 +110,7 @@ const Comment = (props) => {
           // changes to true
           <EditDeleteDropdown
             handleEdit={() => setShowEditForm(true)}
-            handleDelete={handleDelete}
+            handleDelete={handleShowModal}
           />
         )}
       </Media>
@@ -124,6 +138,20 @@ const Comment = (props) => {
         </OverlayTrigger>
       )}
       {commentLikeCount}
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm Deletion</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure you want to delete your comment?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={handleDelete}>
+            Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };

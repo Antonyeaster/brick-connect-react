@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Badge, Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import {
+  Badge,
+  Button,
+  Card,
+  Media,
+  Modal,
+  OverlayTrigger,
+  Tooltip,
+} from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -29,18 +37,27 @@ const Post = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
+  const [showModal, setShowModal] = useState(false);
 
   const camelcase = (str) => {
     return str
       .split(" ")
       .map((category) => {
-        if (category.toLowerCase() === 'diy') {
-          return 'DIY';
+        if (category.toLowerCase() === "diy") {
+          return "DIY";
         } else {
-        return category.charAt(0).toUpperCase() + category.slice(1);
+          return category.charAt(0).toUpperCase() + category.slice(1);
         }
       })
       .join(" ");
+  };
+
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
   };
 
   const handleEdit = () => {
@@ -50,6 +67,7 @@ const Post = (props) => {
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
+      handleCloseModal();
       history.push("/");
     } catch (err) {
       console.log(err);
@@ -139,7 +157,7 @@ const Post = (props) => {
             {is_owner && postPage && (
               <EditDeleteDropdown
                 handleEdit={handleEdit}
-                handleDelete={handleDelete}
+                handleDelete={handleShowModal}
               />
             )}
           </div>
@@ -203,6 +221,20 @@ const Post = (props) => {
               <i className="fa-regular fa-star" />
             </OverlayTrigger>
           )}
+          <Modal show={showModal} onHide={handleCloseModal}>
+            <Modal.Header closeButton>
+              <Modal.Title>Confirm Deletion</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>Are you sure you want to delete your post?</Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleCloseModal}>
+                Cancel
+              </Button>
+              <Button variant="primary" onClick={handleDelete}>
+                Delete
+              </Button>
+            </Modal.Footer>
+          </Modal>
           {category && (
             <h3>
               <Badge pill variant="success">

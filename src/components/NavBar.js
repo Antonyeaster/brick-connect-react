@@ -1,5 +1,12 @@
-import React from "react";
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import React, { useState } from "react";
+import {
+  Navbar,
+  Container,
+  Nav,
+  NavDropdown,
+  Modal,
+  Button,
+} from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import {
   useCurrentUser,
@@ -13,10 +20,21 @@ const NavBar = () => {
 
   const setCurrentUser = useSetCurrentUser();
 
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
+      handleCloseModal();
     } catch (err) {
       console.log(err);
     }
@@ -40,7 +58,7 @@ const NavBar = () => {
         <i className="fa-solid fa-star"></i>Favourited
       </NavLink>
 
-      <NavLink to="/" onClick={handleSignOut}>
+      <NavLink to="/" onClick={handleShowModal}>
         <i className="fas fa-sign-out-alt"></i>Sign Out
       </NavLink>
 
@@ -87,6 +105,20 @@ const NavBar = () => {
           </Nav>
         </Navbar.Collapse>
       </Container>
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm Sign Out</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure you want to sign out?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={handleSignOut}>
+            Sign Out
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Navbar>
   );
 };
