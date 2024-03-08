@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CommentEditForm from "./CommentEditForm";
 import styles from "../../styles/Comment.module.css";
-import { Media } from "react-bootstrap";
+import { Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
@@ -18,15 +18,33 @@ const Comment = (props) => {
     id,
     setPost,
     setComments,
+    commentLikeCount,
+    commentLike_id,
   } = props;
 
-  // Toggles the edit form, set to false until 
+  // Toggles the edit form, set to false until
   // requested then the state changes to true
   const [showEditForm, setShowEditForm] = useState(false);
 
   const currentUser = useCurrentUser();
   // Checking current user is post owner
   const is_owner = currentUser?.username === owner;
+
+  const handleCommentLike = async () => {
+    try {
+      const { data } = await axiosRes.post("/commentlike/", { comment: id });
+      setComments((prevComments) => ({
+        ...prevComments,
+        results: prevComments.results.map((comment) => {
+          return comment.id === id
+            ? { ...comment, commentLikeCount: comment.commentLikeCount + 1, commentLike_id: data.id }
+            : comment;
+        }),
+      }));
+    } catch (err) {
+      console.log("Error liking comment");
+    }
+  };
 
   // Delete comment function
   const handleDelete = async () => {
@@ -73,8 +91,8 @@ const Comment = (props) => {
           )}
         </Media.Body>
         {is_owner && !showEditForm && (
-          // Displays the icons for edit and delete, 
-          // if edit is clicked the setShowEditForm state 
+          // Displays the icons for edit and delete,
+          // if edit is clicked the setShowEditForm state
           // changes to true
           <EditDeleteDropdown
             handleEdit={() => setShowEditForm(true)}
@@ -82,6 +100,30 @@ const Comment = (props) => {
           />
         )}
       </Media>
+      {is_owner ? (
+        <OverlayTrigger
+          placement="top"
+          overlay={<Tooltip>You can't like your own comment!</Tooltip>}
+        >
+          <i className="far fa-heart" />
+        </OverlayTrigger>
+      ) : commentLike_id ? (
+        <span onClick={() => {}}>
+          <i className={`fas fa-heart ${styles.Icon}`} />
+        </span>
+      ) : currentUser ? (
+        <span onClick={handleCommentLike}>
+          <i className={`far fa-heart ${styles.IconOutline}`} />
+        </span>
+      ) : (
+        <OverlayTrigger
+          placement="top"
+          overlay={<Tooltip>Log in to like comments!</Tooltip>}
+        >
+          <i className="far fa-heart" />
+        </OverlayTrigger>
+      )}
+      {commentLikeCount}
     </>
   );
 };
