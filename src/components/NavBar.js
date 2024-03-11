@@ -85,14 +85,12 @@ const NavBar = () => {
         </NavLink>
         {currentUser && addNewPost}
         <NavDropdown title="Category" id="basic-nav-dropdown">
-          <NavDropdown.Item>
-            <NavLink to="/category/full%20set%20builds">
-              Full Set Builds
-            </NavLink>
+          <NavDropdown.Item as={NavLink} to="/category/full%20set%20builds">
+            Full Set Builds
           </NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item>
-            <NavLink to="/category/diy%20builds">DIY Builds</NavLink>
+          <NavDropdown.Item as={NavLink} to="/category/diy%20builds">
+            DIY Builds
           </NavDropdown.Item>
         </NavDropdown>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
