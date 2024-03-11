@@ -6,6 +6,7 @@
     * [Sprint 1](#sprint-1)
     * [Sprint 2](#sprint-2)
     * [Sprint 3](#sprint-3)
+    * [Sprint 4](#sprint-4)
   * [Milestones](#milestones)
   * [Learning Outcomes](#learning-outcomes)
 
@@ -56,6 +57,23 @@ Getting the basic page set up was next, this was just pulling in all this inform
 Adding the favourite functionality was the next task. The user can favourite a post and then have all their favourite posts in a list on a separate page. Alternately, they can remove their favourite, and this removes it from the favourited page.
 
 All tasks were just finished in time on the deadline day.
+
+<hr>
+
+### *Sprint 4*
+
+Sprint 4 was about giving the user more ways to look for posts and interact with comments.
+
+The first part of the sprint was creating my categories. I decided to hard code the categories into the post model as there are only 2 and they are unlikely to change.
+I encountered one bug within the dropdown bootstarp code. As with my other links, I used a NavLink to access my categories; however, I encountered a warning regarding nesting a link within a link. To fix this, I used the "as" prop within my dropdown element, NavLinking it to my path for the separate categories.
+
+Next, I moved onto the defensive design. I used modals to prompt the user when signing out and deleting. This went very smoothly with no problems.
+
+Next, I created the commentlike serializers and views and linked them into my React frontend. I encountered issues where I had made a mistake with the props, I had entered in very slightly different names to the fields I had set in my serializers. This was causing a "NaN" error (not a number). Once I corrected my mistake, the code worked correctly.
+
+Lastly, I had originally decided to create a popular posts section; however, as of sprint 4, I have decided to remove that as a potential "won't have". This is due to timescales and a personal desire to not clog up the UI unnecessarly.
+
+Sprint 4 finished a day ahead of schedule.
 
 <hr>
 
