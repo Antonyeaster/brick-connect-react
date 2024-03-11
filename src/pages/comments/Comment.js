@@ -18,8 +18,8 @@ const Comment = (props) => {
     id,
     setPost,
     setComments,
-    commentLikeCount,
-    commentLike_id,
+    commentlike_count,
+    commentlike_id,
   } = props;
 
   // Toggles the edit form, set to false until
@@ -48,8 +48,8 @@ const Comment = (props) => {
           return comment.id === id
             ? {
                 ...comment,
-                commentLikeCount: comment.commentLikeCount + 1,
-                commentLike_id: data.id,
+                commentlike_count: comment.commentlike_count + 1,
+                commentlike_id: data.id,
               }
             : comment;
         }),
@@ -121,7 +121,7 @@ const Comment = (props) => {
         >
           <i className="far fa-heart" />
         </OverlayTrigger>
-      ) : commentLike_id ? (
+      ) : commentlike_id ? (
         <span onClick={() => {}}>
           <i className={`fas fa-heart ${styles.Icon}`} />
         </span>
@@ -137,7 +137,7 @@ const Comment = (props) => {
           <i className="far fa-heart" />
         </OverlayTrigger>
       )}
-      {commentLikeCount}
+      {commentlike_count}
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>
           <Modal.Title>Confirm Deletion</Modal.Title>
