@@ -4,5 +4,8 @@
 
 .ChooseImage {
   width: 1px;
+}
+
+.ChooseImage > input {
   height: 1px;
 }
