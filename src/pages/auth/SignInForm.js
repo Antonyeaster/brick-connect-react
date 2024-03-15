@@ -9,6 +9,7 @@ import Row from "react-bootstrap/Row";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import toast from "react-hot-toast";
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
@@ -35,8 +36,10 @@ function SignInForm() {
       const {data} = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user);
       history.push("/");
+      toast.success(`Welcome ${data.user.username}!`)
     } catch (err) {
       setErrors(err.response?.data);
+      toast.error("Oops, something went wrong. Please try again.");
     }
   };
   return (

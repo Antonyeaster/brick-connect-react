@@ -73,6 +73,7 @@ const Post = (props) => {
       toast.success(' Post successfully deleted!');
     } catch (err) {
       console.log(err);
+      toast.error("Oops, something went wrong. Please try again.");
     }
   };
 
