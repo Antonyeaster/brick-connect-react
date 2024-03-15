@@ -14,6 +14,7 @@ import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
+import toast from "react-hot-toast";
 
 const Post = (props) => {
   const {
@@ -69,6 +70,7 @@ const Post = (props) => {
       await axiosRes.delete(`/posts/${id}/`);
       handleCloseModal();
       history.push("/");
+      toast.success(' Post successfully deleted!');
     } catch (err) {
       console.log(err);
     }

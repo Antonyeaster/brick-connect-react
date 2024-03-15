@@ -10,6 +10,7 @@ import { Alert, Image } from "react-bootstrap";
 import btnStyles from "../../styles/Button.module.css";
 import { useHistory, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
+import toast from "react-hot-toast";
 
 function PostEditForm() {
   const [errors, setErrors] = useState({});
@@ -77,6 +78,7 @@ function PostEditForm() {
     try {
       await axiosReq.put(`/posts/${id}/`, formData);
       history.push(`/posts/${id}`);
+      toast.success(' Post successfully edited!');
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
