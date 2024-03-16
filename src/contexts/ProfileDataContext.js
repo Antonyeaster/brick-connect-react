@@ -3,6 +3,7 @@ import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useCurrentUser } from "./CurrentUserContext";
 import { followHelper } from "../utils/utils";
 import { unfollowHelper } from "../utils/utils";
+import toast from "react-hot-toast";
 
 export const ProfileDataContext = createContext();
 export const SetProfileDataContext = createContext();
@@ -23,7 +24,6 @@ export const ProfileDataProvider = ({ children }) => {
       const { data } = await axiosRes.post("/followers/", {
         followed: clickedProfile.id,
       });
-
       setProfileData((prevState) => ({
         ...prevState,
         pageProfile: {
@@ -38,6 +38,7 @@ export const ProfileDataProvider = ({ children }) => {
           ),
         },
       }));
+      toast.success(`You are now following ${clickedProfile.owner}`);
     } catch (err) {
       console.log(err);
     }
@@ -60,6 +61,7 @@ export const ProfileDataProvider = ({ children }) => {
           ),
         },
       }));
+      toast.success(`You have unfollowed ${clickedProfile.owner}`);
     } catch (err) {}
   };
 
