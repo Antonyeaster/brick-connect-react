@@ -4,8 +4,6 @@ import {
   Container,
   Nav,
   NavDropdown,
-  Modal,
-  Button,
 } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import {
@@ -15,6 +13,7 @@ import {
 import axios from "axios";
 import Avatar from "./Avatar";
 import ModalConfirmation from "./ModalConfirmation";
+import toast from "react-hot-toast";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -36,6 +35,7 @@ const NavBar = () => {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
       handleCloseModal();
+      toast.success("You've signed out successfully!");
     } catch (err) {
       console.log(err);
     }
