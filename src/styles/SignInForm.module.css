@@ -1,0 +1,32 @@
+.container {
+  padding: 20px;
+}
+
+.background {
+  background: #75669c;
+  border-radius: 10px;
+  overflow: hidden;
+  justify-content: center;
+  display: flex;
+}
+
+.formCol {
+  padding-right: 40px;
+  margin: 0 auto;
+}
+
+.imageCol {
+  margin-top: 40px;
+  margin: 0 auto;
+}
+
+.signupLink {
+  color: rgb(7, 7, 7);
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.signupLink:hover {
+  color: yellow;
+}
