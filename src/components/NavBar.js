@@ -14,6 +14,7 @@ import {
 } from "../contexts/CurrentUserContext";
 import axios from "axios";
 import Avatar from "./Avatar";
+import ModalConfirmation from "./ModalConfirmation";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -63,7 +64,16 @@ const NavBar = () => {
       </NavLink>
 
       <NavLink to={`/profiles/${currentUser?.profile_id}`}>
-        <Avatar src={currentUser?.profile_image} text={currentUser?.username} height={40} />
+        <Avatar
+          src={currentUser?.profile_image}
+          text={currentUser?.username}
+          height={40}
+        />
+      </NavLink>
+      <NavLink
+      to="/notifications"
+      >
+      <i className="fa-regular fa-envelope" />Notifications
       </NavLink>
     </>
   );
@@ -103,20 +113,12 @@ const NavBar = () => {
           </Nav>
         </Navbar.Collapse>
       </Container>
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Confirm Sign Out</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Are you sure you want to sign out?</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            Cancel
-          </Button>
-          <Button variant="primary" onClick={handleSignOut}>
-            Sign Out
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <ModalConfirmation
+        show={showModal}
+        setShow={setShowModal}
+        handleMethod={handleSignOut}
+        body="Are you sure you want to sign out?"
+      />
     </Navbar>
   );
 };
