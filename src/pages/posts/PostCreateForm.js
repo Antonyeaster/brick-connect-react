@@ -62,7 +62,7 @@ function PostCreateForm() {
     try {
       const { data } = await axiosReq.post("/posts/", formData);
       history.push(`/posts/${data.id}`);
-      toast.success('Successfully created!');
+      toast.success('Post successfully created!');
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
