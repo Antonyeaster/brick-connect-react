@@ -4,6 +4,7 @@ import { Card, OverlayTrigger, Tooltip } from "react-bootstrap";
 import Avatar from "../../components/Avatar";
 import toast from "react-hot-toast";
 import ModalConfirmation from "../../components/ModalConfirmation";
+import { Link } from "react-router-dom";
 
 const Notifications = (props) => {
   const {
@@ -56,7 +57,7 @@ const Notifications = (props) => {
   return (
     <>
       <Card>
-      <small className="">{createdAt}</small>
+        <small className="">{createdAt}</small>
         <span>
           <OverlayTrigger
             placement="top"
@@ -91,9 +92,10 @@ const Notifications = (props) => {
           )}
         </span>
         <Card.Body>
-          <Card.Text>
-            <Avatar src={profileImage} height={30} /> {text}
-          </Card.Text>
+          <Link to={`/profiles/${id}`}>
+            <Avatar src={profileImage} height={30} />
+          </Link>
+          <Card.Text>{text}</Card.Text>
         </Card.Body>
       </Card>
       <ModalConfirmation
@@ -105,3 +107,5 @@ const Notifications = (props) => {
     </>
   );
 };
+
+export default Notifications;
