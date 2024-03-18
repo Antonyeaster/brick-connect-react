@@ -1,5 +1,5 @@
 .App {
-    background-color: #a3a3a3;
+    background-color: #000000;
     min-height: 100vh;
   }
   
@@ -8,9 +8,13 @@
   }
   
   .Content {
-    background-color: #ffffff;
+    background-color: #9e2841;
     padding: 10px;
     border-radius: 2px;
-    border: 1px solid #0a0a0a;
+    border: 2px solid #ffffff;
+  }
+
+  body {
+    color: #fdfbfb;
   }
   
