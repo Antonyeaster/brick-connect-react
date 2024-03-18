@@ -12,7 +12,7 @@ import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import toast from "react-hot-toast";
 import signInImage from "../../assets/lego-group.jpg";
 import { Col } from "react-bootstrap";
-import styles from "../../styles/SignInForm.module.css";
+import styles from "../../styles/SignInUpForm.module.css";
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
@@ -51,7 +51,8 @@ function SignInForm() {
         <Row className="justify-content-center align-items-center">
           <Col md={6} className={styles.formCol}>
             <div className="text-center mb-4">
-              <h1 className="mt-3">Sign in</h1>
+              <h2 className="mt-3">Welcome back to Brick Connect!</h2>
+              <h3 className="mt-3">Sign in</h3>
             </div>
             <Form onSubmit={handleSubmit}>
               <Form.Group controlId="username">
