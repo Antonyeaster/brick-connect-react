@@ -28,13 +28,19 @@ h5 {
 .iconsLeft {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
 }
 
-.iconsLeft .Icon {
-  margin-right: 10px; 
+.iconsLeft span {
+  margin-right: 10px;
 }
 
 .customHr {
   border: none;
   border-top: 2px solid white;
+}
+
+.CommentCount {
+  text-decoration: none;
+  color: inherit;
 }
