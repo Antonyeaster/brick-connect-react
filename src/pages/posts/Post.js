@@ -151,10 +151,17 @@ const Post = (props) => {
     <Card className={styles.Post}>
       <Card.Body>
         <Media className="align-items-center justify-content-between">
-          <Link to={`/profiles/${profile_id}`}>
+          <Link to={`/profiles/${profile_id}`} className={styles.links}>
             <Avatar src={profile_image} height={55} />
             {owner}
           </Link>
+          {category && (
+            <h3>
+              <Badge className={styles.categoryBadge} pill>
+                {camelcase(category)}
+              </Badge>
+            </h3>
+          )}
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
             {is_owner && postPage && (
@@ -166,44 +173,42 @@ const Post = (props) => {
           </div>
         </Media>
       </Card.Body>
-      {category && (
-        <h3>
-          <Badge pill variant="success">
-            {camelcase(category)}
-          </Badge>
-        </h3>
-      )}
       <Link to={`/posts/${id}`}>
         <Card.Img src={image} alt={title} />
+        <hr className={`${styles.customHr} mt-0`} />
       </Link>
       <Card.Body>
-        <div className={styles.PostBar}>
+        <div>
           <div className={styles.iconsLeft}>
             {is_owner ? (
               <OverlayTrigger
                 placement="top"
                 overlay={<Tooltip>You can't like your own post!</Tooltip>}
               >
-                <i className="far fa-heart mr-2" />
+                <i className={`far fa-heart mr-4 ${styles.Icon}`} />
               </OverlayTrigger>
             ) : like_id ? (
               <span onClick={handleUnlike}>
-                <i className={`fas fa-heart ${styles.Icon}`} />
+                <OverlayTrigger placement="top" overlay={<Tooltip>Unlike</Tooltip>}>
+                <i className={`fas fa-heart mr-4 ${styles.Icon}`} />
+                </OverlayTrigger>
               </span>
             ) : currentUser ? (
               <span onClick={handleLike}>
-                <i className={`far fa-heart ${styles.IconOutline}`} />
+                <OverlayTrigger placement="top" overlay={<Tooltip>Like</Tooltip>}>
+                <i className={`far fa-heart mr-4 ${styles.Icon}`} />
+                </OverlayTrigger>
               </span>
             ) : (
               <OverlayTrigger
                 placement="top"
                 overlay={<Tooltip>Log in to like posts!</Tooltip>}
               >
-                <i className="far fa-heart mr-2" />
+                <i className={`far fa-heart mr-4 ${styles.Icon}`} />
               </OverlayTrigger>
             )}
             <Link to={`/posts/${id}`}>
-              <i className="far fa-comments mr-2" />
+              <i className={`far fa-comments mr-4 ${styles.Icon}`} />
             </Link>
             {!is_owner && currentUser ? (
               <>
@@ -213,7 +218,7 @@ const Post = (props) => {
                   </span>
                 ) : (
                   <span onClick={handleFavourite}>
-                    <i className={`fa-regular fa-star ${styles.IconOutline}`} />
+                    <i className={`fa-regular fa-star ${styles.Icon}`} />
                   </span>
                 )}
               </>
@@ -234,7 +239,7 @@ const Post = (props) => {
             </Modal.Footer>
           </Modal>
         </div>
-        {title && <Card.Title className="text-left mt-3">{title}</Card.Title>}
+        {title && <Card.Title className="text-left mt-4">{title}</Card.Title>}
         <hr className={styles.customHr} />
         {description && (
           <Card.Text className="text-left">{description}</Card.Text>
@@ -243,11 +248,11 @@ const Post = (props) => {
           {likes_count === 1
             ? `${likes_count} Like | `
             : `${likes_count} Likes | `}
-            <Link className={styles.CommentCount} to={`/posts/${id}`}>
-          {comments_count === 1
-            ? `${comments_count} Comment`
-            : `${comments_count} Comments`}
-            </Link>
+          <Link className={styles.links} to={`/posts/${id}`}>
+            {comments_count === 1
+              ? `${comments_count} Comment`
+              : `${comments_count} Comments`}
+          </Link>
         </Card.Text>
       </Card.Body>
     </Card>

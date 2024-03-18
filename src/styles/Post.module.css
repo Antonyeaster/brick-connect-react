@@ -1,7 +1,7 @@
 .Post {
-  background-color: #9e2841;
+  background-color: #706d6d;
   border: 2px solid #ffffff;
-  border-radius: 2px;
+  border-radius: 5px;
   margin-bottom: 16px;
   text-align: center;
 }
@@ -12,27 +12,24 @@ h5 {
 }
 
 .Icon {
-  color: #f02f0d;
-  margin-right: 10px;
+  color: #fce300;
   cursor: pointer;
+  font-size: 20px;
 }
 
 .Icon:hover {
-  color: #08c9fa;
+  color: #fce300;
 }
 
 .IconOutline:hover {
-  color: #f02f0d;
+  color: #ffffff;
 }
 
 .iconsLeft {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-}
-
-.iconsLeft span {
-  margin-right: 10px;
+  margin-top: -20px;
 }
 
 .customHr {
@@ -40,7 +37,19 @@ h5 {
   border-top: 2px solid white;
 }
 
-.CommentCount {
+.links {
   text-decoration: none;
   color: inherit;
+}
+
+.links:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.categoryBadge {
+  font-size: 14px;
+  padding: 5px 8px;
+  background-color: #000;
+  color: #fce300;
 }
