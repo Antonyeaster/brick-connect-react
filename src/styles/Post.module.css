@@ -1,24 +1,40 @@
 .Post {
-    background-color: #ffffff;
-    border: 1px solid #dadadf;
-    border-radius: 2px;
-    margin-bottom: 16px;
-    text-align: center;
-  }
-  
-  .Post figure,
-  h5 {
-    margin: 0 0;
-  }
-  
-  .Icon {
-    color: #f02f0d;
-  }
-  
-  .Icon:hover {
-    color: #08c9fa;
-  }
-  
-  .IconOutline:hover {
-    color: #f02f0d;
-  }
+  background-color: #9e2841;
+  border: 2px solid #ffffff;
+  border-radius: 2px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.Post figure,
+h5 {
+  margin: 0 0;
+}
+
+.Icon {
+  color: #f02f0d;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.Icon:hover {
+  color: #08c9fa;
+}
+
+.IconOutline:hover {
+  color: #f02f0d;
+}
+
+.iconsLeft {
+  display: flex;
+  align-items: center;
+}
+
+.iconsLeft .Icon {
+  margin-right: 10px; 
+}
+
+.customHr {
+  border: none;
+  border-top: 2px solid white;
+}

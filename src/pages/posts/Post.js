@@ -70,7 +70,7 @@ const Post = (props) => {
       await axiosRes.delete(`/posts/${id}/`);
       handleCloseModal();
       history.push("/");
-      toast.success(' Post successfully deleted!');
+      toast.success("Post successfully deleted!");
     } catch (err) {
       console.log(err);
       toast.error("Oops, something went wrong. Please try again.");
@@ -166,19 +166,25 @@ const Post = (props) => {
           </div>
         </Media>
       </Card.Body>
+      {category && (
+        <h3>
+          <Badge pill variant="success">
+            {camelcase(category)}
+          </Badge>
+        </h3>
+      )}
       <Link to={`/posts/${id}`}>
         <Card.Img src={image} alt={title} />
       </Link>
       <Card.Body>
-        {title && <Card.Title className="text-center">{title}</Card.Title>}
-        {description && <Card.Text>{description}</Card.Text>}
         <div className={styles.PostBar}>
+          <div className={styles.iconsLeft}>
           {is_owner ? (
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>You can't like your own post!</Tooltip>}
             >
-              <i className="far fa-heart" />
+              <i className="far fa-heart mr-2" />
             </OverlayTrigger>
           ) : like_id ? (
             <span onClick={handleUnlike}>
@@ -196,11 +202,9 @@ const Post = (props) => {
               <i className="far fa-heart" />
             </OverlayTrigger>
           )}
-          {likes_count}
           <Link to={`/posts/${id}`}>
-            <i className="far fa-comments" />
+            <i className="far fa-comments mr-2" />
           </Link>
-          {comments_count}
           {is_owner ? (
             <OverlayTrigger
               placement="top"
@@ -224,6 +228,7 @@ const Post = (props) => {
               <i className="fa-regular fa-star" />
             </OverlayTrigger>
           )}
+          </div>
           <Modal show={showModal} onHide={handleCloseModal}>
             <Modal.Header closeButton>
               <Modal.Title>Confirm Deletion</Modal.Title>
@@ -238,14 +243,15 @@ const Post = (props) => {
               </Button>
             </Modal.Footer>
           </Modal>
-          {category && (
-            <h3>
-              <Badge pill variant="success">
-                {camelcase(category)}
-              </Badge>
-            </h3>
-          )}
         </div>
+        {title && <Card.Title className="text-left mt-3">{title}</Card.Title>}
+        <hr  className={styles.customHr}/>
+        {description && <Card.Text className="text-left">{description}
+        </Card.Text>}
+        <Card.Text>
+        {likes_count === 1 ? `${likes_count} Like | ` : `${likes_count} Likes | `}
+            {comments_count === 1 ? `${comments_count} Comment` : `${comments_count} Comments`}
+        </Card.Text>
       </Card.Body>
     </Card>
   );
