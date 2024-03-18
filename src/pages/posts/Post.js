@@ -174,6 +174,7 @@ const Post = (props) => {
         </Media>
       </Card.Body>
       <Link to={`/posts/${id}`}>
+      <hr className={`${styles.customHr} mb-0`} />
         <Card.Img src={image} alt={title} />
         <hr className={`${styles.customHr} mt-0`} />
       </Link>
