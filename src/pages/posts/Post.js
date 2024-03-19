@@ -3,10 +3,8 @@ import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import {
   Badge,
-  Button,
   Card,
   Media,
-  Modal,
   OverlayTrigger,
   Tooltip,
 } from "react-bootstrap";
@@ -15,6 +13,7 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
 import toast from "react-hot-toast";
+import ModalConfirmation from "../../components/ModalConfirmation";
 
 const Post = (props) => {
   const {
@@ -150,29 +149,29 @@ const Post = (props) => {
   return (
     <Card className={styles.Post}>
       <Card.Body>
-        <Media className="align-items-center justify-content-between">
-          <Link to={`/profiles/${profile_id}`} className={styles.links}>
-            <Avatar src={profile_image} height={55} />
-            {owner}
-          </Link>
-          {category && (
-            <h3>
-              <Badge className={styles.categoryBadge} pill>
-                {camelcase(category)}
-              </Badge>
-            </h3>
-          )}
-          <div className="d-flex align-items-center">
-            <span>{updated_at}</span>
-            {is_owner && postPage && (
-              <EditDeleteDropdown
-                handleEdit={handleEdit}
-                handleDelete={handleShowModal}
-              />
-            )}
-          </div>
-        </Media>
-      </Card.Body>
+  <Media className="align-items-center justify-content-between">
+    <Link to={`/profiles/${profile_id}`} className={styles.links}>
+      <Avatar src={profile_image} height={50} />
+      {owner}
+      <small><div className="ml-4 mt-1">{updated_at}</div></small>
+    </Link>
+    <div className="d-flex align-items-center">
+      {category && (
+        <h3>
+          <Badge className={styles.categoryBadge} pill>
+            {camelcase(category)}
+          </Badge>
+        </h3>
+      )}
+      {is_owner && postPage && (
+        <EditDeleteDropdown
+          handleEdit={handleEdit}
+          handleDelete={handleShowModal}
+        />
+      )}
+    </div>
+  </Media>
+</Card.Body>
       <Link to={`/posts/${id}`}>
       <hr className={`${styles.customHr} mb-0`} />
         <Card.Img src={image} alt={title} />
@@ -225,20 +224,6 @@ const Post = (props) => {
               </>
             ) : null}
           </div>
-          <Modal show={showModal} onHide={handleCloseModal}>
-            <Modal.Header closeButton>
-              <Modal.Title>Confirm Deletion</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>Are you sure you want to delete your post?</Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleCloseModal}>
-                Cancel
-              </Button>
-              <Button variant="primary" onClick={handleDelete}>
-                Delete
-              </Button>
-            </Modal.Footer>
-          </Modal>
         </div>
         {title && <Card.Title className="text-left mt-4">{title}</Card.Title>}
         <hr className={styles.customHr} />
@@ -256,6 +241,12 @@ const Post = (props) => {
           </Link>
         </Card.Text>
       </Card.Body>
+      <ModalConfirmation
+        handleMethod={handleDelete}
+        show={showModal}
+        setShow={setShowModal} 
+        body="Are you sure you want to delete your post?"
+      />
     </Card>
   );
 };
