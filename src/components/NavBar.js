@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  Navbar,
-  Container,
-  Nav,
-  NavDropdown,
-} from "react-bootstrap";
+import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import {
   useCurrentUser,
@@ -14,6 +9,8 @@ import axios from "axios";
 import Avatar from "./Avatar";
 import ModalConfirmation from "./ModalConfirmation";
 import toast from "react-hot-toast";
+import styles from "../styles/NavBar.module.css";
+import icon from "../assets/bricks.png";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -41,72 +38,91 @@ const NavBar = () => {
     }
   };
   const addNewPost = (
-    <NavLink to="/posts/create">
+    <NavLink to="/posts/create" className={styles.navLink}>
       <i className="fa-solid fa-square-plus"></i>Add Post
     </NavLink>
   );
   const loggedInIcons = (
     <>
-      <NavLink to="/feed">
+      <NavLink to="/feed" className={styles.navLink}>
         <i className="fas fa-stream"></i>Feed
       </NavLink>
 
-      <NavLink to="/liked">
+      <NavLink to="/liked" className={styles.navLink}>
         <i className="fas fa-heart"></i>Liked
       </NavLink>
 
-      <NavLink to="/favourited">
+      <NavLink to="/favourited" className={styles.navLink}>
         <i className="fa-solid fa-star"></i>Favourited
       </NavLink>
 
-      <NavLink to="/" onClick={handleShowModal}>
+      <NavLink to="/" onClick={handleShowModal} className={styles.navLink}>
         <i className="fas fa-sign-out-alt"></i>Sign Out
       </NavLink>
 
-      <NavLink to={`/profiles/${currentUser?.profile_id}`}>
+      <NavLink to="/notifications" className={styles.navLink}>
+        <i className="fa-solid fa-envelope" />
+        Notifications
+      </NavLink>
+
+      <NavLink
+        to={`/profiles/${currentUser?.profile_id}`}
+        className={styles.navLink}
+      >
         <Avatar
           src={currentUser?.profile_image}
           text={currentUser?.username}
-          height={40}
+          height={35}
         />
-      </NavLink>
-      <NavLink
-      to="/notifications"
-      >
-      <i className="fa-regular fa-envelope" />Notifications
       </NavLink>
     </>
   );
   const loggedOutIcons = (
     <>
-      <NavLink to="/signin">
+      <NavLink to="/signin" className={styles.navLink}>
         <i className="fas fa-sign-in-alt"></i>Sign In
       </NavLink>
-      <NavLink to="/signup">
+      <NavLink to="/signup" className={styles.navLink}>
         <i className="fas fa-user-plus"></i>Sign Up
       </NavLink>
     </>
   );
   return (
-    <Navbar bg="light" expand="md" fixed="top">
+    <Navbar expand="lg" fixed="top" className={styles.NavBar}>
       <Container>
         <NavLink to="/">
-          <Navbar.Brand>Brick Connect</Navbar.Brand>
+          <Navbar.Brand>
+            Brick
+            <img src={icon} alt="icon" />
+            Connect
+          </Navbar.Brand>
         </NavLink>
         {currentUser && addNewPost}
-        <NavDropdown title="Category" id="basic-nav-dropdown">
-          <NavDropdown.Item as={NavLink} to="/category/full%20set%20builds">
+        <NavDropdown
+          title="Category"
+          id="basic-nav-dropdown"
+          className={styles.CategoryDropDown}
+        >
+          <NavDropdown.Item
+            as={NavLink}
+            to="/category/full%20set%20builds"
+            className={styles.navLink}
+          >
             Full Set Builds
           </NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item as={NavLink} to="/category/diy%20builds">
+          <NavDropdown.Item
+            as={NavLink}
+            to="/category/diy%20builds"
+            className={styles.navLink}
+          >
             DIY Builds
           </NavDropdown.Item>
         </NavDropdown>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <NavLink to="/">
+            <NavLink to="/" className={styles.navLink}>
               <i className="fas fa-home"></i>Home
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
