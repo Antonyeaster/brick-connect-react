@@ -11,6 +11,7 @@ import ModalConfirmation from "./ModalConfirmation";
 import toast from "react-hot-toast";
 import styles from "../styles/NavBar.module.css";
 import icon from "../assets/bricks.png";
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -18,6 +19,8 @@ const NavBar = () => {
   const setCurrentUser = useSetCurrentUser();
 
   const [showModal, setShowModal] = useState(false);
+
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
   const handleShowModal = () => {
     setShowModal(true);
@@ -44,43 +47,59 @@ const NavBar = () => {
   );
   const loggedInIcons = (
     <>
-      <NavDropdown title="Feeds" id="feeds-dropdown" className={styles.CategoryDropDown}>
-        <NavDropdown.Item as={NavLink} to="/feed" className={styles.CategoryDropDown}>
-          <i className="fas fa-stream"></i>Feed
-        </NavDropdown.Item>
-        <NavDropdown.Item as={NavLink} to="/liked" className={styles.CategoryDropDown}>
-          <i className="fas fa-heart"></i>Liked
-        </NavDropdown.Item>
-        <NavDropdown.Item
-          as={NavLink}
-          to="/favourited"
-          className={styles.CategoryDropDown}
-        >
-          <i className="fa-solid fa-star"> </i>Favourited
-        </NavDropdown.Item>
-      </NavDropdown>
+      {currentUser && (
+        <>
+          <NavDropdown
+            title="Feeds"
+            id="feeds-dropdown"
+            className={styles.CategoryDropDown}
+          >
+            <NavDropdown.Item
+              as={NavLink}
+              to="/feed"
+              className={styles.CategoryDropDown}
+            >
+              <i className="fas fa-stream"></i>Feed
+            </NavDropdown.Item>
+            <NavDropdown.Item
+              as={NavLink}
+              to="/liked"
+              className={styles.CategoryDropDown}
+            >
+              <i className="fas fa-heart"></i>Liked
+            </NavDropdown.Item>
+            <NavDropdown.Item
+              as={NavLink}
+              to="/favourited"
+              className={styles.CategoryDropDown}
+            >
+              <i className="fa-solid fa-star"> </i>Favourited
+            </NavDropdown.Item>
+          </NavDropdown>
 
-        <NavDropdown
-          title="Category"
-          id="basic-nav-dropdown"
-          className={styles.CategoryDropDown}
-        >
-          <NavDropdown.Item
-            as={NavLink}
-            to="/category/full%20set%20builds"
-            className={styles.NavLink}
+          <NavDropdown
+            title="Category"
+            id="basic-nav-dropdown"
+            className={styles.CategoryDropDown}
           >
-            Full Set Builds
-          </NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item
-            as={NavLink}
-            to="/category/diy%20builds"
-            className={styles.NavLink}
-          >
-            DIY Builds
-          </NavDropdown.Item>
-        </NavDropdown>
+            <NavDropdown.Item
+              as={NavLink}
+              to="/category/full%20set%20builds"
+              className={styles.NavLink}
+            >
+              Full Set Builds
+            </NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item
+              as={NavLink}
+              to="/category/diy%20builds"
+              className={styles.NavLink}
+            >
+              DIY Builds
+            </NavDropdown.Item>
+          </NavDropdown>
+        </>
+      )}
 
       <NavLink to="/notifications" className={styles.NavLink}>
         <i className="fa-solid fa-envelope" />
@@ -103,6 +122,7 @@ const NavBar = () => {
       </NavLink>
     </>
   );
+
   const loggedOutIcons = (
     <>
       <NavLink to="/signin" className={styles.NavLink}>
@@ -113,8 +133,14 @@ const NavBar = () => {
       </NavLink>
     </>
   );
+
   return (
-    <Navbar expand="lg" fixed="top" className={styles.NavBar}>
+    <Navbar
+      expanded={expanded}
+      expand="lg"
+      fixed="top"
+      className={styles.NavBar}
+    >
       <Container>
         <NavLink to="/">
           <Navbar.Brand>
@@ -124,7 +150,11 @@ const NavBar = () => {
           </Navbar.Brand>
         </NavLink>
         {currentUser && addNewPost}
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle
+          ref={ref}
+          onClick={() => setExpanded(!expanded)}
+          aria-controls="basic-navbar-nav"
+        />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
             <NavLink to="/" className={styles.NavLink}>
