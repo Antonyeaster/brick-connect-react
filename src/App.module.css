@@ -1,20 +1,20 @@
 .App {
-    background-color: #000000;
-    min-height: 100vh;
-  }
-  
-  .Main {
-    padding-top: 81px;
-  }
-  
-  .Content {
-    background-color: #706d6d;
-    padding: 10px;
-    border-radius: 2px;
-    border: 2px solid #ffffff;
-  }
+  font-family: "Playpen Sans", sans-serif;
+  background-color: #000000;
+  min-height: 100vh;
+}
 
-  body {
-    color: #000;
-  }
-  
+.Main {
+  padding-top: 81px;
+}
+
+.Content {
+  background-color: #706d6d;
+  padding: 10px;
+  border-radius: 2px;
+  border: 2px solid #ffffff;
+}
+
+body {
+  color: #000;
+}
