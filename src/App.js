@@ -26,7 +26,7 @@ function App() {
   return (
     <div className={styles.App}>
       <div>
-        <button onClick={notify}>Make me a toast</button>
+         onClick={notify}
         <Toaster />
       </div>
       <NavBar />
