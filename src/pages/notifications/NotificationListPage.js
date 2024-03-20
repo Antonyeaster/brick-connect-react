@@ -6,6 +6,7 @@ import Notifications from "./Notification";
 import Asset from "../../components/Asset";
 import { axiosReq } from "../../api/axiosDefaults";
 import { fetchMoreData } from "../../utils/utils";
+import styles from "../../styles/Notifications.module.css"
 
 const NotificationListPage = ({ notificationMessage }) => {
   const [notifications, setNotifications] = useState({ results: [] });
@@ -36,7 +37,7 @@ const NotificationListPage = ({ notificationMessage }) => {
     <NotFound />
   ) : (
     <>
-      <h3>Notifications</h3>
+      <h3 className={styles.Heading}>Notifications</h3>
       {hasLoaded ? (
         notifications.results.length ? (
           <InfiniteScroll
