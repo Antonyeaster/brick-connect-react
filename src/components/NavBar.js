@@ -38,51 +38,77 @@ const NavBar = () => {
     }
   };
   const addNewPost = (
-    <NavLink to="/posts/create" className={styles.navLink}>
+    <NavLink to="/posts/create" className={styles.NavLink}>
       <i className="fa-solid fa-square-plus"></i>Add Post
     </NavLink>
   );
   const loggedInIcons = (
     <>
-      <NavLink to="/feed" className={styles.navLink}>
-        <i className="fas fa-stream"></i>Feed
-      </NavLink>
+      <NavDropdown title="Feeds" id="feeds-dropdown" className={styles.CategoryDropDown}>
+        <NavDropdown.Item as={NavLink} to="/feed" className={styles.CategoryDropDown}>
+          <i className="fas fa-stream"></i>Feed
+        </NavDropdown.Item>
+        <NavDropdown.Item as={NavLink} to="/liked" className={styles.CategoryDropDown}>
+          <i className="fas fa-heart"></i>Liked
+        </NavDropdown.Item>
+        <NavDropdown.Item
+          as={NavLink}
+          to="/favourited"
+          className={styles.CategoryDropDown}
+        >
+          <i className="fa-solid fa-star"> </i>Favourited
+        </NavDropdown.Item>
+      </NavDropdown>
 
-      <NavLink to="/liked" className={styles.navLink}>
-        <i className="fas fa-heart"></i>Liked
-      </NavLink>
+        <NavDropdown
+          title="Category"
+          id="basic-nav-dropdown"
+          className={styles.CategoryDropDown}
+        >
+          <NavDropdown.Item
+            as={NavLink}
+            to="/category/full%20set%20builds"
+            className={styles.NavLink}
+          >
+            Full Set Builds
+          </NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item
+            as={NavLink}
+            to="/category/diy%20builds"
+            className={styles.NavLink}
+          >
+            DIY Builds
+          </NavDropdown.Item>
+        </NavDropdown>
 
-      <NavLink to="/favourited" className={styles.navLink}>
-        <i className="fa-solid fa-star"></i>Favourited
-      </NavLink>
-
-      <NavLink to="/" onClick={handleShowModal} className={styles.navLink}>
-        <i className="fas fa-sign-out-alt"></i>Sign Out
-      </NavLink>
-
-      <NavLink to="/notifications" className={styles.navLink}>
+      <NavLink to="/notifications" className={styles.NavLink}>
         <i className="fa-solid fa-envelope" />
         Notifications
       </NavLink>
 
       <NavLink
         to={`/profiles/${currentUser?.profile_id}`}
-        className={styles.navLink}
+        className={styles.NavLink}
       >
         <Avatar
           src={currentUser?.profile_image}
           text={currentUser?.username}
-          height={35}
+          height={25}
         />
+      </NavLink>
+
+      <NavLink to="/" onClick={handleShowModal} className={styles.NavLink}>
+        <i className="fas fa-sign-out-alt"></i>Sign Out
       </NavLink>
     </>
   );
   const loggedOutIcons = (
     <>
-      <NavLink to="/signin" className={styles.navLink}>
+      <NavLink to="/signin" className={styles.NavLink}>
         <i className="fas fa-sign-in-alt"></i>Sign In
       </NavLink>
-      <NavLink to="/signup" className={styles.navLink}>
+      <NavLink to="/signup" className={styles.NavLink}>
         <i className="fas fa-user-plus"></i>Sign Up
       </NavLink>
     </>
@@ -93,36 +119,15 @@ const NavBar = () => {
         <NavLink to="/">
           <Navbar.Brand>
             Brick
-            <img src={icon} alt="icon" />
+            <img src={icon} alt="icon" height="20" />
             Connect
           </Navbar.Brand>
         </NavLink>
         {currentUser && addNewPost}
-        <NavDropdown
-          title="Category"
-          id="basic-nav-dropdown"
-          className={styles.CategoryDropDown}
-        >
-          <NavDropdown.Item
-            as={NavLink}
-            to="/category/full%20set%20builds"
-            className={styles.navLink}
-          >
-            Full Set Builds
-          </NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item
-            as={NavLink}
-            to="/category/diy%20builds"
-            className={styles.navLink}
-          >
-            DIY Builds
-          </NavDropdown.Item>
-        </NavDropdown>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto">
-            <NavLink to="/" className={styles.navLink}>
+          <Nav className="ml-auto text-left">
+            <NavLink to="/" className={styles.NavLink}>
               <i className="fas fa-home"></i>Home
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}

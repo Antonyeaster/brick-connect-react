@@ -1,10 +1,10 @@
-.navLink {
-  padding: 0.5rem; 
+.NavLink {
+  padding: 5px; 
   text-decoration: none;
   color: #000; 
 }
 
-.navLink:hover {
+.NavLink:hover {
   color: #555;
 }
 
@@ -12,6 +12,6 @@
     background-color: #706d6d;
 }
 
-.CategoryDropDown a {
+.CategoryDropDown {
   color: #000;
 }
