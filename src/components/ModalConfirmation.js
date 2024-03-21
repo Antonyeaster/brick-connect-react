@@ -17,7 +17,7 @@ const ModalConfirmation = ({ handleMethod, show, setShow, body }) => {
         <Button variant="secondary" onClick={() => setShow(false)}>
           Cancel
         </Button>
-        <Button onClick={handleMethod} variant="primary">
+        <Button onClick={handleMethod} variant="danger">
           Confirm
         </Button>
       </Modal.Footer>
