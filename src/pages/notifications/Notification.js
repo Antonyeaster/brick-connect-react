@@ -13,6 +13,8 @@ const Notifications = (props) => {
     id,
     created_at: createdAt,
     profile_image: profileImage,
+    object_id: objectId,
+    category,
     read,
     text,
     setNotifications,
@@ -64,10 +66,16 @@ const Notifications = (props) => {
           <small className="pl-2 pt-2">{createdAt}</small>
         </div>
         <Card.Body>
-          <Link to={`/profiles/${id}`}>
-            <Avatar src={profileImage} height={30} />
-          </Link>
+            <Avatar src={profileImage} height={40} />
           <Card.Text>{text}</Card.Text>
+          {category !== "follow" && (
+          <Button
+          as={Link}
+          to={`/posts/${objectId}`} 
+          className={`${btnStyles.Button}`}
+          >
+          Go to posts
+          </Button>)}
         </Card.Body>
         <div className={styles.ButtonContainer}>
             <span>
