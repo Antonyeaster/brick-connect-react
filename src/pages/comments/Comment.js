@@ -111,6 +111,7 @@ const Comment = (props) => {
         <Media.Body className="align-self-center ml-2">
           <span className={styles.Owner}>{owner}</span>
           <span className={styles.Date}>{updated_at}</span>
+          <hr className={styles.customHr}/>
           {showEditForm ? (
             <CommentEditForm
               id={id}
@@ -121,7 +122,7 @@ const Comment = (props) => {
               setShowEditForm={setShowEditForm}
             />
           ) : (
-            <p>{content}</p>
+            <strong><p>{content}</p></strong>
           )}
         </Media.Body>
         {is_owner && !showEditForm && (
@@ -139,7 +140,7 @@ const Comment = (props) => {
           placement="top"
           overlay={<Tooltip>You can't like your own comment!</Tooltip>}
         >
-          <i className="far fa-heart" />
+          <i className={`far fa-heart mr-4 ${styles.Icon}`} />
         </OverlayTrigger>
       ) : commentlike_id ? (
         <span onClick={handleCommentUnlike}>
@@ -147,14 +148,14 @@ const Comment = (props) => {
         </span>
       ) : currentUser ? (
         <span onClick={handleCommentLike}>
-          <i className={`far fa-heart ${styles.IconOutline}`} />
+          <i className={`far fa-heart ${styles.Icon}`} />
         </span>
       ) : (
         <OverlayTrigger
           placement="top"
           overlay={<Tooltip>Log in to like comments!</Tooltip>}
         >
-          <i className="far fa-heart" />
+          <i className={`far fa-heart ${styles.Icon}`}/>
         </OverlayTrigger>
       )}
       {commentlike_count}

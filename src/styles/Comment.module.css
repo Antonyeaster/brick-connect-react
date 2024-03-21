@@ -8,3 +8,15 @@
   font-weight: lighter;
   color: #c1c1c5;
 }
+
+.Icon {
+  color: #fce300;
+  cursor: pointer;
+  font-size: 20px;
+  margin: 5px;
+}
+
+.customHr {
+  border: none;
+  border-top: 2px solid white;
+}
