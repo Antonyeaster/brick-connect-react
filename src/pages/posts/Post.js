@@ -153,7 +153,7 @@ const Post = (props) => {
     <Link to={`/profiles/${profile_id}`} className={styles.links}>
       <Avatar src={profile_image} height={50} />
       {owner}
-      <small><span className="ml-2 mt-1">Posted on: {updated_at}</span></small>
+      <small><div className="ml-2 mt-1">Posted on: {updated_at}</div></small>
     </Link>
     <div className="d-flex align-items-center">
       {category && (
