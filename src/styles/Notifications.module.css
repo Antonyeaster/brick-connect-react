@@ -1,5 +1,24 @@
 .Heading {
-    color: #fff;
-    text-align: center;
-    margin-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ButtonContainer {
+  text-align: right;
+}
+
+.Container {
+  background-color: #706d6d; 
+  padding: 20px; 
+  margin-bottom: 20px; 
+  border-radius: 10px;
+}
+
+.Dot {
+  width: 16px;
+  height: 16px;
+  background-color: red;
+  border-radius: 50%;
+  margin-right: 5px; 
 }
