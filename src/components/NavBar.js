@@ -10,7 +10,7 @@ import Avatar from "./Avatar";
 import ModalConfirmation from "./ModalConfirmation";
 import toast from "react-hot-toast";
 import styles from "../styles/NavBar.module.css";
-import icon from "../assets/bricks.png";
+import icon from "../assets/logo-bricks.png";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
 const NavBar = () => {
