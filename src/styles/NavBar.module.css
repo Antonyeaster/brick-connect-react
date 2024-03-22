@@ -1,11 +1,10 @@
 .NavLink {
   padding: 5px; 
-  text-decoration: none;
   color: #000; 
 }
 
 .NavLink:hover {
-  color: #555;
+  color: #fce300;
 }
 
 .NavBar {
@@ -14,5 +13,12 @@
 }
 
 .CategoryDropDown {
+  padding: 5px; 
   color: #000;
 }
+
+.Active i {
+  color: #fce300;
+}
+
+

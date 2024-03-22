@@ -41,7 +41,11 @@ const NavBar = () => {
     }
   };
   const addNewPost = (
-    <NavLink to="/posts/create" className={styles.NavLink}>
+    <NavLink
+      to="/posts/create"
+      className={styles.NavLink}
+      activeClassName={styles.Active}
+    >
       <i className="fa-solid fa-square-plus"></i>Add Post
     </NavLink>
   );
@@ -50,42 +54,46 @@ const NavBar = () => {
       {currentUser && (
         <>
           <NavDropdown
-            title="Feeds"
+            title={<><i className="fas fa-stream"></i> Feeds</>}
             id="feeds-dropdown"
-            className={styles.CategoryDropDown}
+            className={`${styles.CategoryDropDown} ${styles.NavLink}`}
+            activeClassName={styles.Active}
           >
             <NavDropdown.Item
               as={NavLink}
               to="/feed"
-              className={styles.CategoryDropDown}
+              className={`${styles.CategoryDropDown} ${styles.NavLink}`}
+              activeClassName={styles.Active}
             >
               <i className="fas fa-stream"></i>Feed
             </NavDropdown.Item>
             <NavDropdown.Item
               as={NavLink}
               to="/liked"
-              className={styles.CategoryDropDown}
+              className={`${styles.CategoryDropDown} ${styles.NavLink}`}
+              activeClassName={styles.Active}
             >
               <i className="fas fa-heart"></i>Liked
             </NavDropdown.Item>
             <NavDropdown.Item
               as={NavLink}
               to="/favourited"
-              className={styles.CategoryDropDown}
+              className={`${styles.CategoryDropDown} ${styles.NavLink}`}
+              activeClassName={styles.Active}
             >
               <i className="fa-solid fa-star"> </i>Favourited
             </NavDropdown.Item>
           </NavDropdown>
 
           <NavDropdown
-            title="Category"
+            title={<><i className="fa-solid fa-layer-group"></i> Catergory</>}
             id="basic-nav-dropdown"
-            className={styles.CategoryDropDown}
+            className={styles.NavBar_NavLink__34ons}
           >
             <NavDropdown.Item
               as={NavLink}
               to="/category/full%20set%20builds"
-              className={styles.NavLink}
+              className={`${styles.CategoryDropDown} ${styles.NavLink}`}
             >
               Full Set Builds
             </NavDropdown.Item>
@@ -93,7 +101,7 @@ const NavBar = () => {
             <NavDropdown.Item
               as={NavLink}
               to="/category/diy%20builds"
-              className={styles.NavLink}
+              className={`${styles.CategoryDropDown} ${styles.NavLink}`}
             >
               DIY Builds
             </NavDropdown.Item>
@@ -101,7 +109,11 @@ const NavBar = () => {
         </>
       )}
 
-      <NavLink to="/notifications" className={styles.NavLink}>
+      <NavLink
+        to="/notifications"
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+      >
         <i className="fa-solid fa-envelope" />
         Notifications
       </NavLink>
@@ -125,10 +137,18 @@ const NavBar = () => {
 
   const loggedOutIcons = (
     <>
-      <NavLink to="/signin" className={styles.NavLink}>
+      <NavLink
+        to="/signin"
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+      >
         <i className="fas fa-sign-in-alt"></i>Sign In
       </NavLink>
-      <NavLink to="/signup" className={styles.NavLink}>
+      <NavLink
+        to="/signup"
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+      >
         <i className="fas fa-user-plus"></i>Sign Up
       </NavLink>
     </>
@@ -157,7 +177,12 @@ const NavBar = () => {
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
-            <NavLink to="/" className={styles.NavLink}>
+            <NavLink
+              exact
+              to="/"
+              className={styles.NavLink}
+              activeClassName={styles.Active}
+            >
               <i className="fas fa-home"></i>Home
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
