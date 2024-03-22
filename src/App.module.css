@@ -8,6 +8,10 @@
   padding-top: 81px;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 .Content {
   background-color: #706d6d;
   padding: 10px;
@@ -17,4 +21,18 @@
 
 body {
   color: #000;
+}
+
+/* scrollbar used from moments walthrough*/
+*::-webkit-scrollbar {
+  width: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+*::-webkit-scrollbar-thumb {
+  background: #888;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
