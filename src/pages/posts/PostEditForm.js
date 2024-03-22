@@ -78,7 +78,7 @@ function PostEditForm() {
     try {
       await axiosReq.put(`/posts/${id}/`, formData);
       history.push(`/posts/${id}`);
-      toast.success(' Post successfully edited!');
+      toast.success(" Post successfully edited!");
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
@@ -153,7 +153,10 @@ function PostEditForm() {
           >
             <Form.Group className="text-center">
               <figure>
-                <Image className={appStyles.Image} src={image} />
+                <Image
+                  className={`${appStyles.Image} ${styles.UploadedImage}`}
+                  src={image}
+                />
               </figure>
               <div>
                 <Form.Label
@@ -164,6 +167,7 @@ function PostEditForm() {
                 </Form.Label>
               </div>
               <Form.File
+                className={styles.ChooseImage}
                 id="image-upload"
                 accept="image/*"
                 onChange={handleChangeImage}
