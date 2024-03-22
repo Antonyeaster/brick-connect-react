@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Container, Nav, NavDropdown, Dropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import {
   useCurrentUser,
@@ -53,8 +53,51 @@ const NavBar = () => {
     <>
       {currentUser && (
         <>
-          <NavDropdown
-            title={<><i className="fas fa-stream"></i> Feeds</>}
+          <Dropdown>
+            <Dropdown.Toggle
+              className={`${styles.DropdownToggle} ml-2`}
+              id="dropdown-basic"
+            >
+              <i className="fas fa-stream"></i> Feeds
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item to="/feed" as={NavLink}>
+                <i className="fas fa-stream"></i> Feed
+              </Dropdown.Item>
+              <Dropdown.Item as={NavLink} to="/liked">
+                <i className="fas fa-heart"></i> Liked
+              </Dropdown.Item>
+              <Dropdown.Item as={NavLink} to="/favourited">
+                <i className="fa-solid fa-star"></i> Favourited
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown>
+            <Dropdown.Toggle
+              className={`${styles.DropdownToggle} ml-2`}
+              id="dropdown-basic"
+            >
+              <i className="fa-solid fa-layer-group"></i> Catergory
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item as={NavLink}
+              to="/category/full%20set%20builds">
+                Full Set Builds
+              </Dropdown.Item>
+              <Dropdown.Item as={NavLink}
+              to="/category/diy%20builds">
+                DIY Builds
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          {/* <NavDropdown
+            title={
+              <>
+                <i className="fas fa-stream"></i> Feeds
+              </>
+            }
             id="feeds-dropdown"
             className={`${styles.CategoryDropDown} ${styles.NavLink}`}
             activeClassName={styles.Active}
@@ -86,9 +129,13 @@ const NavBar = () => {
           </NavDropdown>
 
           <NavDropdown
-            title={<><i className="fa-solid fa-layer-group"></i> Catergory</>}
+            title={
+              <>
+                <i className="fa-solid fa-layer-group"></i> Catergory
+              </>
+            }
             id="basic-nav-dropdown"
-            className={styles.NavBar_NavLink__34ons}
+            className={styles.NavLink}
           >
             <NavDropdown.Item
               as={NavLink}
@@ -105,17 +152,16 @@ const NavBar = () => {
             >
               DIY Builds
             </NavDropdown.Item>
-          </NavDropdown>
+          </NavDropdown> */}
         </>
       )}
 
       <NavLink
         to="/notifications"
-        className={styles.NavLink}
+        className={`${styles.NavLink} ml-2`}
         activeClassName={styles.Active}
       >
-        <i className="fa-solid fa-envelope" />
-        Notifications
+        <i className="fa-solid fa-envelope" /> Notifications
       </NavLink>
 
       <NavLink
@@ -129,8 +175,8 @@ const NavBar = () => {
         />
       </NavLink>
 
-      <NavLink to="/" onClick={handleShowModal} className={styles.NavLink}>
-        <i className="fas fa-sign-out-alt"></i>Sign Out
+      <NavLink to="/" onClick={handleShowModal} className={`${styles.NavLink} ml-2`}>
+        <i className="fas fa-sign-out-alt"></i> Sign Out
       </NavLink>
     </>
   );
@@ -139,17 +185,17 @@ const NavBar = () => {
     <>
       <NavLink
         to="/signin"
-        className={styles.NavLink}
+        className={`${styles.NavLink} ml-2`}
         activeClassName={styles.Active}
       >
-        <i className="fas fa-sign-in-alt"></i>Sign In
+        <i className="fas fa-sign-in-alt"></i> Sign In
       </NavLink>
       <NavLink
         to="/signup"
-        className={styles.NavLink}
+        className={`${styles.NavLink} ml-2`}
         activeClassName={styles.Active}
       >
-        <i className="fas fa-user-plus"></i>Sign Up
+        <i className="fas fa-user-plus"></i> Sign Up
       </NavLink>
     </>
   );
@@ -180,10 +226,10 @@ const NavBar = () => {
             <NavLink
               exact
               to="/"
-              className={styles.NavLink}
+              className={`${styles.NavLink} ml-2`}
               activeClassName={styles.Active}
             >
-              <i className="fas fa-home"></i>Home
+              <i className="fas fa-home"></i> Home
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
