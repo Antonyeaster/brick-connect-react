@@ -59,8 +59,8 @@ const Notifications = (props) => {
   };
 
   return (
-    <div className={styles.Container}>
-      <Card>
+    <>
+      <Card className="mb-3">
       <div className="d-flex align-items-center">
           {!read && <div className={styles.Dot} />}
           <small className="pl-2 pt-2">{createdAt}</small>
@@ -101,7 +101,7 @@ const Notifications = (props) => {
         handleMethod={handleDelete}
         body="Delete notification!"
       />
-      </div>
+      </>
   );
 };
 

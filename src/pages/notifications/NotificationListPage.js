@@ -36,7 +36,7 @@ const NotificationListPage = ({ notificationMessage }) => {
   return !currentUser ? (
     <NotFound />
   ) : (
-    <>
+    <div className={styles.Container}>
       <h3 className={styles.Heading}>Notifications</h3>
       {hasLoaded ? (
         notifications.results.length ? (
@@ -60,7 +60,7 @@ const NotificationListPage = ({ notificationMessage }) => {
       ) : (
         <Asset spinner />
       )}
-    </>
+    </div>
   );
 };
 
