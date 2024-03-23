@@ -72,7 +72,7 @@ const Notifications = (props) => {
             <Button
               as={Link}
               to={`/posts/${objectId}`}
-              className={`mb-2 ${btnStyles.Button} ${styles.ReadButtonCustom} ${btnStyles.BabyBlue}`}
+              className={`mb-2 ${btnStyles.Button} ${btnStyles.BabyBlueButtonCustom} ${btnStyles.BabyBlue}`}
             >
               Go to posts
             </Button>
@@ -91,14 +91,14 @@ const Notifications = (props) => {
           </span>
           {read ? (
             <Button
-              className={`mb-2 ${btnStyles.Button} ${styles.UnreadButtonCustom} ${btnStyles.Grey}`}
+              className={`mb-2 ${btnStyles.Button} ${btnStyles.BlackButtonCustom} ${btnStyles.Black}`}
               onClick={handleReadStatus}
             >
               Mark as unread
             </Button>
           ) : (
             <Button
-              className={`mb-2 ${btnStyles.Button} ${styles.ReadButtonCustom} ${btnStyles.BabyBlue}`}
+              className={`mb-2 ${btnStyles.Button} ${btnStyles.BabyBlueButtonCustom} ${btnStyles.BabyBlue}`}
               onClick={handleReadStatus}
             >
               Mark as read

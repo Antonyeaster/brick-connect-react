@@ -15,7 +15,31 @@
   font-weight: bold;
 }
 
-.Grey {
+.Black {
   background-color: #000000;
+  color: #fce300;
+}
+
+.BabyBlueButtonCustom:focus {
+  background-color: #06cdf0 !important;
+  color: #000 !important;
+  box-shadow: none !important;
+  border: #06cdf0 !important;
+}
+
+.BabyBlueButtonCustom:hover {
+  background-color: #06cdf0;
+  color: #000;
+}
+
+.BlackButtonCustom:focus {
+  background-color: #000 !important;
+  color: #fce300 !important;
+  box-shadow: none !important;
+  border: #000 !important;
+}
+
+.BlackButtonCustom:hover {
+  background-color: #000;
   color: #fce300;
 }
