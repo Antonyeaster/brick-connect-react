@@ -22,3 +22,27 @@
   border-radius: 50%;
   margin-right: 5px; 
 }
+
+.ReadButtonCustom:focus {
+  background-color: #06cdf0 !important;
+  color: #000 !important;
+  box-shadow: none !important;
+  border: #06cdf0 !important;
+}
+
+.ReadButtonCustom:hover {
+  background-color: #06cdf0;
+  color: #000;
+}
+
+.UnreadButtonCustom:focus {
+  background-color: #000 !important;
+  color: #fce300 !important;
+  box-shadow: none !important;
+  border: #000 !important;
+}
+
+.UnreadButtonCustom:hover {
+  background-color: #000;
+  color: #fce300;
+}

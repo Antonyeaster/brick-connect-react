@@ -5,8 +5,8 @@ import Avatar from "../../components/Avatar";
 import toast from "react-hot-toast";
 import ModalConfirmation from "../../components/ModalConfirmation";
 import { Link } from "react-router-dom";
-import btnStyles from "../../styles/Button.module.css"
-import styles from "../../styles/Notifications.module.css"
+import btnStyles from "../../styles/Button.module.css";
+import styles from "../../styles/Notifications.module.css";
 
 const Notifications = (props) => {
   const {
@@ -61,37 +61,48 @@ const Notifications = (props) => {
   return (
     <>
       <Card className="mb-3">
-      <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center">
           {!read && <div className={styles.Dot} />}
           <small className="pl-2 pt-2">{createdAt}</small>
         </div>
         <Card.Body>
-            <Avatar src={profileImage} height={40} />
+          <Avatar src={profileImage} height={40} />
           <Card.Text>{text}</Card.Text>
           {category !== "follow" && (
-          <Button
-          as={Link}
-          to={`/posts/${objectId}`} 
-          className={`${btnStyles.Button}`}
-          >
-          Go to posts
-          </Button>)}
+            <Button
+              as={Link}
+              to={`/posts/${objectId}`}
+              className={`mb-2 ${btnStyles.Button} ${styles.ReadButtonCustom} ${btnStyles.BabyBlue}`}
+            >
+              Go to posts
+            </Button>
+          )}
         </Card.Body>
         <div className={styles.ButtonContainer}>
-            <span>
+          <span>
             <Button
-            className={`btn-danger mb-2 ${btnStyles.Button}`}
+              className={`btn-danger mb-2 ${btnStyles.Button}`}
               aria-label="Delete notification"
               title="Delete Notification"
               onClick={handleShowModal}
             >
               <i className="fas fa-trash-alt" />
-              </Button>
-            </span>
+            </Button>
+          </span>
           {read ? (
-            <Button className={`mb-2 ${btnStyles.Button} ${btnStyles.BabyBlue}`} onClick={handleReadStatus}>Mark as unread</Button>
+            <Button
+              className={`mb-2 ${btnStyles.Button} ${styles.UnreadButtonCustom} ${btnStyles.Grey}`}
+              onClick={handleReadStatus}
+            >
+              Mark as unread
+            </Button>
           ) : (
-            <Button className={`mb-2 ${btnStyles.Button} ${btnStyles.Grey}`} onClick={handleReadStatus}>Mark as read</Button>
+            <Button
+              className={`mb-2 ${btnStyles.Button} ${styles.ReadButtonCustom} ${btnStyles.BabyBlue}`}
+              onClick={handleReadStatus}
+            >
+              Mark as read
+            </Button>
           )}
         </div>
       </Card>
@@ -101,7 +112,7 @@ const Notifications = (props) => {
         handleMethod={handleDelete}
         body="Delete notification!"
       />
-      </>
+    </>
   );
 };
 
