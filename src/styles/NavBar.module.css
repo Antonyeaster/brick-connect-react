@@ -35,4 +35,10 @@
   text-decoration: none;
 }
 
+.NavDropdownCustom:focus {
+  background-color: #000 !important;
+  color: #fce300 !important;
+  box-shadow: none !important;
+}
+
 

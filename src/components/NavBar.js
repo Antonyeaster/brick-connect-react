@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar, Container, Nav, NavDropdown, Dropdown } from "react-bootstrap";
+import { Navbar, Container, Nav, Dropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import {
   useCurrentUser,
@@ -40,6 +40,7 @@ const NavBar = () => {
       console.log(err);
     }
   };
+
   const addNewPost = (
     <NavLink
       to="/posts/create"
@@ -49,13 +50,14 @@ const NavBar = () => {
       <i className="fa-solid fa-square-plus"></i>Add Post
     </NavLink>
   );
+
   const loggedInIcons = (
     <>
       {currentUser && (
         <>
           <Dropdown>
             <Dropdown.Toggle
-              className={`${styles.DropdownToggle} ml-2`}
+              className={`${styles.DropdownToggle} ${styles.NavDropdownCustom} ml-2`}
               id="dropdown-basic"
             >
               <i className="fas fa-stream"></i> Feeds
@@ -75,84 +77,21 @@ const NavBar = () => {
           </Dropdown>
           <Dropdown>
             <Dropdown.Toggle
-              className={`${styles.DropdownToggle} ml-2`}
+              className={`${styles.DropdownToggle} ${styles.NavDropdownCustom} ml-2`}
               id="dropdown-basic"
             >
-              <i className="fa-solid fa-layer-group"></i> Catergory
+              <i className="fa-solid fa-layer-group"></i> Category
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item as={NavLink}
-              to="/category/full%20set%20builds">
+              <Dropdown.Item as={NavLink} to="/category/full%20set%20builds">
                 Full Set Builds
               </Dropdown.Item>
-              <Dropdown.Item as={NavLink}
-              to="/category/diy%20builds">
+              <Dropdown.Item as={NavLink} to="/category/diy%20builds">
                 DIY Builds
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          {/* <NavDropdown
-            title={
-              <>
-                <i className="fas fa-stream"></i> Feeds
-              </>
-            }
-            id="feeds-dropdown"
-            className={`${styles.CategoryDropDown} ${styles.NavLink}`}
-            activeClassName={styles.Active}
-          >
-            <NavDropdown.Item
-              as={NavLink}
-              to="/feed"
-              className={`${styles.CategoryDropDown} ${styles.NavLink}`}
-              activeClassName={styles.Active}
-            >
-              <i className="fas fa-stream"></i>Feed
-            </NavDropdown.Item>
-            <NavDropdown.Item
-              as={NavLink}
-              to="/liked"
-              className={`${styles.CategoryDropDown} ${styles.NavLink}`}
-              activeClassName={styles.Active}
-            >
-              <i className="fas fa-heart"></i>Liked
-            </NavDropdown.Item>
-            <NavDropdown.Item
-              as={NavLink}
-              to="/favourited"
-              className={`${styles.CategoryDropDown} ${styles.NavLink}`}
-              activeClassName={styles.Active}
-            >
-              <i className="fa-solid fa-star"> </i>Favourited
-            </NavDropdown.Item>
-          </NavDropdown>
-
-          <NavDropdown
-            title={
-              <>
-                <i className="fa-solid fa-layer-group"></i> Catergory
-              </>
-            }
-            id="basic-nav-dropdown"
-            className={styles.NavLink}
-          >
-            <NavDropdown.Item
-              as={NavLink}
-              to="/category/full%20set%20builds"
-              className={`${styles.CategoryDropDown} ${styles.NavLink}`}
-            >
-              Full Set Builds
-            </NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item
-              as={NavLink}
-              to="/category/diy%20builds"
-              className={`${styles.CategoryDropDown} ${styles.NavLink}`}
-            >
-              DIY Builds
-            </NavDropdown.Item>
-          </NavDropdown> */}
         </>
       )}
 
@@ -175,7 +114,11 @@ const NavBar = () => {
         />
       </NavLink>
 
-      <NavLink to="/" onClick={handleShowModal} className={`${styles.NavLink} ml-2`}>
+      <NavLink
+        to="/"
+        onClick={handleShowModal}
+        className={`${styles.NavLink} ml-2`}
+      >
         <i className="fas fa-sign-out-alt"></i> Sign Out
       </NavLink>
     </>
@@ -215,12 +158,14 @@ const NavBar = () => {
             Connect
           </Navbar.Brand>
         </NavLink>
+
         {currentUser && addNewPost}
         <Navbar.Toggle
           ref={ref}
           onClick={() => setExpanded(!expanded)}
           aria-controls="basic-navbar-nav"
         />
+
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
             <NavLink
@@ -231,6 +176,7 @@ const NavBar = () => {
             >
               <i className="fas fa-home"></i> Home
             </NavLink>
+
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>
