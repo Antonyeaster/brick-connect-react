@@ -123,14 +123,20 @@ function PostCreateForm() {
         </Alert>
       ))}
 
-      <Row className="justify-content-center mt-1">
-        <Col>
-          <Button onClick={() => history.goBack()}>Cancel</Button>
-        </Col>
-        <Col>
-          <Button type="submit">Create</Button>
-        </Col>
-      </Row>
+      <Button
+        onClick={() => history.goBack()}
+        className={`${btnStyles.Button} ${btnStyles.BlackButtonCustom} ${btnStyles.Black}`}
+      >
+        Cancel
+      </Button>
+
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.BabyBlueButtonCustom} ${btnStyles.BabyBlue}`}
+        type="submit"
+      >
+        Create
+      </Button>
+
       {errors.image?.map((message, idx) => (
         <Alert className="mt-2" variant="warning" key={idx}>
           {message}
@@ -158,7 +164,7 @@ function PostCreateForm() {
                   </figure>
                   <div>
                     <Form.Label
-                      className={`${btnStyles.Button} ${btnStyles.BabyBlue} btn`}
+                      className={`${btnStyles.Button} ${btnStyles.BabyBlueButtonCustom} ${btnStyles.BabyBlue}`}
                       htmlFor="image-upload"
                     >
                       Change the image

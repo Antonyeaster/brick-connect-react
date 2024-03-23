@@ -4,20 +4,21 @@ import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefaults";
 
 import styles from "../../styles/CommentCreateEditForm.module.css";
+import btnStyles from "../../styles/Button.module.css"
 
 function CommentEditForm(props) {
   const { id, content, setShowEditForm, setComments } = props;
 
   const [formContent, setFormContent] = useState(content);
 
-  // handles the change if the content 
+  // handles the change if the content
   // is updated in the textarea
   const handleChange = (event) => {
     setFormContent(event.target.value);
   };
 
-  // When the form is saved the handlesubmit updates the 
-  // comment and changes the state of the setShowEditForm 
+  // When the form is saved the handlesubmit updates the
+  // comment and changes the state of the setShowEditForm
   // back to false to hide the comment form
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -56,18 +57,18 @@ function CommentEditForm(props) {
       </Form.Group>
       <div className="text-right">
         <button
-          className={styles.Button}
+          className={`${btnStyles.Button} ${btnStyles.BlackButtonCustom} ${btnStyles.Black}`}
           onClick={() => setShowEditForm(false)}
           type="button"
         >
-          cancel
+          Cancel
         </button>
         <button
-          className={styles.Button}
+          className={`${btnStyles.Button} ${btnStyles.BabyBlueButtonCustom} ${btnStyles.BabyBlue}`}
           disabled={!content.trim()}
           type="submit"
         >
-          save
+          Save
         </button>
       </div>
     </Form>
