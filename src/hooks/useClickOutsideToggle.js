@@ -6,6 +6,10 @@ const useClickOutsideToggle = () => {
   const ref = useRef(null);
   useEffect(() => {
     const handleClickOutside = (event) => {
+      const element = event.target
+      if (element.innerText === " Category" || element.innerText === " Feeds") {
+        return
+      } 
       if (ref.current && !ref.current.contains(event.target)) {
         setExpanded(false);
       }
