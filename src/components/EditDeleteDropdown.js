@@ -2,12 +2,13 @@ import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/EditDeleteDropdown.module.css";
 import { useHistory } from "react-router-dom";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <i
-    className={`${styles.DropdownIcon} fa-solid fa-ellipsis-vertical`}
+    className={`${styles.DropdownIcon} px-2 fa-solid fa-ellipsis-vertical`}
     ref={ref}
     onClick={(e) => {
       e.preventDefault();
@@ -18,7 +19,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
 
 export const EditDeleteDropdown = ({handleEdit, handleDelete}) => {
   return (
-    <Dropdown className="ml-auto" drop="left">
+    <Dropdown className="ml-auto mr-2" drop="left">
       <Dropdown.Toggle
         as={ThreeDots}
         id="dropdown-custom-components"
@@ -51,7 +52,9 @@ export const EditDeleteDropdown = ({handleEdit, handleDelete}) => {
 
 export function ProfileEditDropdown({ id }) {
   const history = useHistory();
+
   return (
+    <OverlayTrigger placement="bottom" overlay={<Tooltip>Edit</Tooltip>}>
     <Dropdown className={`ml-auto px-3 ${styles.Absolute}`} drop="left">
       <Dropdown.Toggle as={ThreeDots} />
       <Dropdown.Menu>
@@ -77,5 +80,6 @@ export function ProfileEditDropdown({ id }) {
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
+    </OverlayTrigger>
   );
 }
