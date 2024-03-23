@@ -14,10 +14,8 @@ import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import NotificationListPage from "./pages/notifications/NotificationListPage";
-
-const notify = () => toast("Here is your toast.");
 
 function App() {
   const currentUser = useCurrentUser();
@@ -26,7 +24,6 @@ function App() {
   return (
     <div className={styles.App}>
       <div>
-         onClick={notify}
         <Toaster />
       </div>
       <NavBar />
