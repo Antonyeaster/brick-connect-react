@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import CommentEditForm from "./CommentEditForm";
 import styles from "../../styles/Comment.module.css";
-import { Button, Media, Modal, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
+import ModalConfirmation from "../../components/ModalConfirmation";
 
 const Comment = (props) => {
   const {
@@ -159,20 +160,12 @@ const Comment = (props) => {
         </OverlayTrigger>
       )}
       {commentlike_count}
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Confirm Deletion</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Are you sure you want to delete your comment?</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            Cancel
-          </Button>
-          <Button variant="primary" onClick={handleDelete}>
-            Delete
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <ModalConfirmation
+        show={showModal}
+        setShow={setShowModal}
+        handleMethod={handleDelete}
+        body="Are you sure you want to delete your comment?"
+      />
     </>
   );
 };
