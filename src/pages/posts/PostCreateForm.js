@@ -65,7 +65,7 @@ function PostCreateForm() {
       history.push(`/posts/${data.id}`);
       toast.success("Post successfully created!");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
         toast.error("Oops, something went wrong. Please try again.");

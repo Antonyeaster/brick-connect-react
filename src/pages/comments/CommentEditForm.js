@@ -41,7 +41,7 @@ function CommentEditForm(props) {
       setShowEditForm(false);
       toast.success("Comment edited successfully!");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       toast.error("Oops, something went wrong. Please try again.");
     }
   };

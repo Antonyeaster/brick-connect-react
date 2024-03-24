@@ -73,7 +73,7 @@ const Post = (props) => {
       history.push("/");
       toast.success("Post successfully deleted!");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       toast.error("Oops, something went wrong. Please try again.");
     }
   };
@@ -90,7 +90,7 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -106,7 +106,7 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -125,7 +125,7 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -144,7 +144,7 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

@@ -39,7 +39,7 @@ function CommentCreateForm(props) {
       setContent("");
       toast.success("Comment posted!");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       toast.error("Oops, something went wrong. Please try again.");
     }
   };

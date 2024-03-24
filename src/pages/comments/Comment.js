@@ -62,7 +62,7 @@ const Comment = (props) => {
         }),
       }));
     } catch (err) {
-      console.log("Error liking comment");
+      // console.log(err);
     }
   };
 
@@ -82,7 +82,7 @@ const Comment = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -106,7 +106,9 @@ const Comment = (props) => {
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),
       }));
-    } catch (err) {}
+    } catch (err) {
+      // console.log(err)
+    }
   };
 
   return (

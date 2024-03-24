@@ -48,7 +48,7 @@ const UserPasswordForm = () => {
       history.goBack();
       toast.success("Password updated successfully!");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       setErrors(err.response?.data);
       toast.error("Oops, something went wrong. Please try again.");
     }

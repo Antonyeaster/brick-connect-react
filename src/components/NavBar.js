@@ -45,7 +45,7 @@ const NavBar = () => {
       handleCloseModal();
       toast.success("You've signed out successfully!");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

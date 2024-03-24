@@ -41,7 +41,7 @@ const Notifications = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -55,7 +55,7 @@ const Notifications = (props) => {
         ),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     } finally {
       toast.success("Notification deleted.");
     }

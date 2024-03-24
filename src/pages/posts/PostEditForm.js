@@ -43,7 +43,7 @@ function PostEditForm() {
           ? setPostData({ title, description, image, category })
           : history.push("/");
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 
@@ -84,7 +84,7 @@ function PostEditForm() {
       history.push(`/posts/${id}`);
       toast.success(" Post successfully edited!");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
         toast.error("Oops, something went wrong. Please try again.");

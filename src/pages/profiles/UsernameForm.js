@@ -48,7 +48,7 @@ const UsernameForm = () => {
       history.goBack();
       toast.success("Username updated successfully!");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       setErrors(err.response?.data);
       toast.error("Oops, something went wrong. Please try again.");
     }

@@ -41,7 +41,7 @@ export const ProfileDataProvider = ({ children }) => {
       }));
       toast.success(`You are now following ${clickedProfile.owner}`);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -63,7 +63,9 @@ export const ProfileDataProvider = ({ children }) => {
         },
       }));
       toast.success(`You have unfollowed ${clickedProfile.owner}`);
-    } catch (err) {}
+    } catch (err) {
+      // console.log(err);
+    }
   };
 
   // Fetching popular profiles when the component mounts
@@ -79,7 +81,7 @@ export const ProfileDataProvider = ({ children }) => {
           popularProfiles: data,
         }));
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 
