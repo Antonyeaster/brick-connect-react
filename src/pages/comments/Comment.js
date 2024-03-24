@@ -1,13 +1,19 @@
 import React, { useState } from "react";
-import CommentEditForm from "./CommentEditForm";
-import styles from "../../styles/Comment.module.css";
-import { Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+
 import { Link } from "react-router-dom";
-import Avatar from "../../components/Avatar";
 import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
+
+import CommentEditForm from "./CommentEditForm";
+import styles from "../../styles/Comment.module.css";
+import Media from "react-bootstrap/Media";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
+
 import ModalConfirmation from "../../components/ModalConfirmation";
+import toast from "react-hot-toast";
+import Avatar from "../../components/Avatar";
 
 const Comment = (props) => {
   const {
@@ -94,6 +100,7 @@ const Comment = (props) => {
         ],
       }));
       handleCloseModal();
+      toast.success("Comment successfully deleted!");
       // Removes the comment from the page
       setComments((prevComments) => ({
         ...prevComments,
@@ -112,7 +119,7 @@ const Comment = (props) => {
         <Media.Body className="align-self-center ml-2">
           <span className={styles.Owner}>{owner}</span>
           <span className={styles.Date}>{updated_at}</span>
-          <hr className={styles.customHr}/>
+          <hr className={styles.customHr} />
           {showEditForm ? (
             <CommentEditForm
               id={id}
@@ -123,7 +130,9 @@ const Comment = (props) => {
               setShowEditForm={setShowEditForm}
             />
           ) : (
-            <strong><p>{content}</p></strong>
+            <strong>
+              <p>{content}</p>
+            </strong>
           )}
         </Media.Body>
         {is_owner && !showEditForm && (
@@ -156,7 +165,7 @@ const Comment = (props) => {
           placement="top"
           overlay={<Tooltip>Log in to like comments!</Tooltip>}
         >
-          <i className={`far fa-heart ${styles.Icon}`}/>
+          <i className={`far fa-heart ${styles.Icon}`} />
         </OverlayTrigger>
       )}
       {commentlike_count}

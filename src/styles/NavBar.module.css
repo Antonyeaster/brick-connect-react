@@ -1,7 +1,7 @@
 .NavLink {
-  padding: 5px; 
+  padding: 5px;
   color: #000;
-  font-size: 14px; 
+  font-size: 14px;
 }
 
 .NavLink:hover {
@@ -9,12 +9,12 @@
 }
 
 .NavBar {
-    background-color: #706d6d;
-    border: 2px solid #fff;
+  background-color: #706d6d;
+  border: 2px solid #fff;
 }
 
 .CategoryDropDown {
-  padding: 5px; 
+  padding: 5px;
   color: #000;
 }
 
@@ -40,5 +40,3 @@
   color: #fce300 !important;
   box-shadow: none !important;
 }
-
-

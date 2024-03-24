@@ -1,19 +1,21 @@
 import React, { useState } from "react";
-import styles from "../../styles/Post.module.css";
+
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import {
-  Badge,
-  Card,
-  Media,
-  OverlayTrigger,
-  Tooltip,
-} from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
-import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
+
+import Avatar from "../../components/Avatar";
 import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
+
 import toast from "react-hot-toast";
 import ModalConfirmation from "../../components/ModalConfirmation";
+
+import Card from "react-bootstrap/Card";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
+import Badge from "react-bootstrap/Badge";
+import Media from "react-bootstrap/Media";
+import styles from "../../styles/Post.module.css";
 
 const Post = (props) => {
   const {
@@ -149,31 +151,33 @@ const Post = (props) => {
   return (
     <Card className={styles.Post}>
       <Card.Body>
-  <Media className="align-items-center justify-content-between">
-    <Link to={`/profiles/${profile_id}`} className={styles.links}>
-      <Avatar src={profile_image} height={50} />
-      {owner}
-      <small><div className="ml-2 mt-1">Posted on: {updated_at}</div></small>
-    </Link>
-    <div className="d-flex align-items-center">
-      {category && (
-        <h3>
-          <Badge className={styles.categoryBadge} pill>
-            {camelcase(category)}
-          </Badge>
-        </h3>
-      )}
-      {is_owner && postPage && (
-        <EditDeleteDropdown
-          handleEdit={handleEdit}
-          handleDelete={handleShowModal}
-        />
-      )}
-    </div>
-  </Media>
-</Card.Body>
+        <Media className="align-items-center justify-content-between">
+          <Link to={`/profiles/${profile_id}`} className={styles.links}>
+            <Avatar src={profile_image} height={50} />
+            {owner}
+            <small>
+              <div className="ml-2 mt-1">Posted on: {updated_at}</div>
+            </small>
+          </Link>
+          <div className="d-flex align-items-center">
+            {category && (
+              <h3>
+                <Badge className={styles.categoryBadge} pill>
+                  {camelcase(category)}
+                </Badge>
+              </h3>
+            )}
+            {is_owner && postPage && (
+              <EditDeleteDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleShowModal}
+              />
+            )}
+          </div>
+        </Media>
+      </Card.Body>
       <Link to={`/posts/${id}`}>
-      <hr className={`${styles.customHr} mb-0`} />
+        <hr className={`${styles.customHr} mb-0`} />
         <Card.Img src={image} alt={title} />
         <hr className={`${styles.customHr} mt-0`} />
       </Link>
@@ -189,14 +193,20 @@ const Post = (props) => {
               </OverlayTrigger>
             ) : like_id ? (
               <span onClick={handleUnlike}>
-                <OverlayTrigger placement="top" overlay={<Tooltip>Unlike</Tooltip>}>
-                <i className={`fas fa-heart mr-4 ${styles.Icon}`} />
+                <OverlayTrigger
+                  placement="top"
+                  overlay={<Tooltip>Unlike</Tooltip>}
+                >
+                  <i className={`fas fa-heart mr-4 ${styles.Icon}`} />
                 </OverlayTrigger>
               </span>
             ) : currentUser ? (
               <span onClick={handleLike}>
-                <OverlayTrigger placement="top" overlay={<Tooltip>Like</Tooltip>}>
-                <i className={`far fa-heart mr-4 ${styles.Icon}`} />
+                <OverlayTrigger
+                  placement="top"
+                  overlay={<Tooltip>Like</Tooltip>}
+                >
+                  <i className={`far fa-heart mr-4 ${styles.Icon}`} />
                 </OverlayTrigger>
               </span>
             ) : (
@@ -244,7 +254,7 @@ const Post = (props) => {
       <ModalConfirmation
         handleMethod={handleDelete}
         show={showModal}
-        setShow={setShowModal} 
+        setShow={setShowModal}
         body="Are you sure you want to delete your post?"
       />
     </Card>

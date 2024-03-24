@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { axiosRes } from "../../api/axiosDefaults";
-import { Button, Card } from "react-bootstrap";
-import Avatar from "../../components/Avatar";
-import toast from "react-hot-toast";
-import ModalConfirmation from "../../components/ModalConfirmation";
 import { Link } from "react-router-dom";
+
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Avatar from "../../components/Avatar";
 import btnStyles from "../../styles/Button.module.css";
 import styles from "../../styles/Notifications.module.css";
+
+import toast from "react-hot-toast";
+import ModalConfirmation from "../../components/ModalConfirmation";
 
 const Notifications = (props) => {
   const {

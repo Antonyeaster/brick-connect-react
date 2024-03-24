@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { axiosRes } from "../../api/axiosDefaults";
 
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-
 import styles from "../../styles/CommentCreateEditForm.module.css";
+import btnStyles from "../../styles/Button.module.css";
 import Avatar from "../../components/Avatar";
-import { axiosRes } from "../../api/axiosDefaults";
-import btnStyles from "../../styles/Button.module.css"
+import toast from "react-hot-toast";
 
 function CommentCreateForm(props) {
   const { post, setPost, setComments, profileImage, profile_id } = props;
@@ -37,8 +37,10 @@ function CommentCreateForm(props) {
         ],
       }));
       setContent("");
+      toast.success("Comment posted!");
     } catch (err) {
       console.log(err);
+      toast.error("Oops, something went wrong. Please try again.");
     }
   };
 

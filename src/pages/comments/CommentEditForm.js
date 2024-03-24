@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-
-import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefaults";
 
+import Form from "react-bootstrap/Form";
 import styles from "../../styles/CommentCreateEditForm.module.css";
-import btnStyles from "../../styles/Button.module.css"
+import btnStyles from "../../styles/Button.module.css";
+import toast from "react-hot-toast";
 
 function CommentEditForm(props) {
   const { id, content, setShowEditForm, setComments } = props;
@@ -39,8 +39,10 @@ function CommentEditForm(props) {
         }),
       }));
       setShowEditForm(false);
+      toast.success("Comment edited successfully!");
     } catch (err) {
       console.log(err);
+      toast.error("Oops, something went wrong. Please try again.");
     }
   };
 

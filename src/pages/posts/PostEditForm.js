@@ -1,4 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
+
+import { useHistory, useParams } from "react-router-dom";
+import { axiosReq } from "../../api/axiosDefaults";
+
+import toast from "react-hot-toast";
+
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -6,11 +12,9 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
-import { Alert, Image } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
+import Alert from "react-bootstrap/Alert";
 import btnStyles from "../../styles/Button.module.css";
-import { useHistory, useParams } from "react-router-dom";
-import { axiosReq } from "../../api/axiosDefaults";
-import toast from "react-hot-toast";
 
 function PostEditForm() {
   const [errors, setErrors] = useState({});
@@ -139,8 +143,18 @@ function PostEditForm() {
         </Alert>
       ))}
 
-      <Button onClick={() => history.goBack()} className={`${btnStyles.Button} ${btnStyles.BlackButtonCustom} ${btnStyles.Black}`}>Cancel</Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.BabyBlueButtonCustom} ${btnStyles.BabyBlue}`} type="submit">Save</Button>
+      <Button
+        onClick={() => history.goBack()}
+        className={`${btnStyles.Button} ${btnStyles.BlackButtonCustom} ${btnStyles.Black}`}
+      >
+        Cancel
+      </Button>
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.BabyBlueButtonCustom} ${btnStyles.BabyBlue}`}
+        type="submit"
+      >
+        Save
+      </Button>
     </div>
   );
 

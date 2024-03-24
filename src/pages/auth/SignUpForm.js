@@ -1,11 +1,19 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
 
-import { Form, Button, Alert, Col, Container, Row } from "react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
+
+import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Image from "react-bootstrap/Image";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import formImage from "../../assets/lego-group.jpg";
+import styles from "../../styles/SignInUpForm.module.css";
+
 import toast from "react-hot-toast";
-import formImage from "../../assets/lego-group.jpg"
-import styles from "../../styles/SignInUpForm.module.css"
 
 const SignUpForm = () => {
   const [signUpData, setSignUpData] = useState({
@@ -39,10 +47,10 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className={styles.background}>
-      <Container className={styles.container}>
+    <div className={styles.Background}>
+      <Container className={styles.Container}>
         <Row className="justify-content-center align-items-center">
-          <Col md={6} className={styles.formCol}>
+          <Col md={6} className={styles.FormCol}>
             <div className="text-center mb-4">
               <h2 className="mt-3">Welcome to Brick Connect!</h2>
               <h3 className="mt-3">Sign Up</h3>
@@ -106,15 +114,20 @@ const SignUpForm = () => {
             <Row className="justify-content-center mt-3">
               <p>
                 <strong>Already have an account?</strong>{" "}
-                <Link to="/signin" className={styles.signupLink}>
+                <Link to="/signin" className={styles.SignupLink}>
                   Sign in here
                 </Link>
               </p>
             </Row>
           </Col>
 
-          <Col md={6} className={styles.imageCol}>
-            <img src={formImage} alt="sign in" className="img-fluid" />
+          <Col md={6} className={styles.ImageCol}>
+            <Image
+              src={formImage}
+              alt="sign in"
+              className="img-fluid"
+              thumbnail
+            />
           </Col>
         </Row>
       </Container>

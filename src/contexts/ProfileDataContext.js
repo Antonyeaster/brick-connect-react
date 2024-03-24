@@ -3,6 +3,7 @@ import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useCurrentUser } from "./CurrentUserContext";
 import { followHelper } from "../utils/utils";
 import { unfollowHelper } from "../utils/utils";
+
 import toast from "react-hot-toast";
 
 export const ProfileDataContext = createContext();
@@ -87,7 +88,9 @@ export const ProfileDataProvider = ({ children }) => {
   }, [currentUser]);
   return (
     <ProfileDataContext.Provider value={profileData}>
-      <SetProfileDataContext.Provider value={{ setProfileData, handleFollow, handleUnfollow }}>
+      <SetProfileDataContext.Provider
+        value={{ setProfileData, handleFollow, handleUnfollow }}
+      >
         {children}
       </SetProfileDataContext.Provider>
     </ProfileDataContext.Provider>

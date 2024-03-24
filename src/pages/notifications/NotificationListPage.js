@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import NotFound from "../../components/NotFound";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Notifications from "./Notification";
-import Asset from "../../components/Asset";
 import { axiosReq } from "../../api/axiosDefaults";
 import { fetchMoreData } from "../../utils/utils";
-import styles from "../../styles/Notifications.module.css"
+
+import NotFound from "../../components/NotFound";
+import Notifications from "./Notification";
+import Asset from "../../components/Asset";
+import styles from "../../styles/Notifications.module.css";
 
 const NotificationListPage = ({ notificationMessage }) => {
   const [notifications, setNotifications] = useState({ results: [] });

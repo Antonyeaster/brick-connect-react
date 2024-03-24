@@ -1,8 +1,8 @@
-.container {
+.Container {
   padding: 20px;
 }
 
-.background {
+.Background {
   background: #9e2841;
   border-radius: 10px;
   overflow: hidden;
@@ -10,23 +10,23 @@
   display: flex;
 }
 
-.formCol {
+.FormCol {
   padding-right: 40px;
   margin: 0 auto;
 }
 
-.imageCol {
+.ImageCol {
   margin-top: 40px;
   margin: 0 auto;
 }
 
-.signupLink {
+.SignupLink {
   color: rgb(7, 7, 7);
   font-weight: bold;
   text-decoration: underline;
   cursor: pointer;
 }
 
-.signupLink:hover {
+.SignupLink:hover {
   color: yellow;
 }

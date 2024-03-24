@@ -1,15 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 
-
 const useClickOutsideToggle = () => {
   const [expanded, setExpanded] = useState(false);
   const ref = useRef(null);
   useEffect(() => {
     const handleClickOutside = (event) => {
-      const element = event.target
+      const element = event.target;
       if (element.innerText === " Category" || element.innerText === " Feeds") {
-        return
-      } 
+        return;
+      }
       if (ref.current && !ref.current.contains(event.target)) {
         setExpanded(false);
       }

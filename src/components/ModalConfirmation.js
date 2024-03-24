@@ -10,7 +10,9 @@ const ModalConfirmation = ({ handleMethod, show, setShow, body }) => {
       </Modal.Header>
       <Modal.Body>
         <div className="text-center">
-          <strong><p>{body}</p></strong>
+          <strong>
+            <p>{body}</p>
+          </strong>
         </div>
       </Modal.Body>
       <Modal.Footer>

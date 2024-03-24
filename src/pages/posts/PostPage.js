@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-
-import appStyles from "../../App.module.css";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
@@ -15,6 +10,11 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
+import appStyles from "../../App.module.css";
 
 function PostPage() {
   const { id } = useParams();
@@ -58,15 +58,19 @@ function PostPage() {
             "Comments"
           ) : null}
           {comments.results.length ? (
-            <InfiniteScroll 
-            children={comments.results.map((comment) => (
-              <Comment key={comment.id} {...comment} setPost={setPost} setComments={setComments} />
-            ))}
-            
-            dataLength={comments.results.length}
-            loader={<Asset spinner />}
-            hasMore={!!comments.next}
-            next={() => fetchMoreData(comments, setComments)}
+            <InfiniteScroll
+              children={comments.results.map((comment) => (
+                <Comment
+                  key={comment.id}
+                  {...comment}
+                  setPost={setPost}
+                  setComments={setComments}
+                />
+              ))}
+              dataLength={comments.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!comments.next}
+              next={() => fetchMoreData(comments, setComments)}
             />
           ) : currentUser ? (
             <span>No comments yet, be the first to comment.</span>

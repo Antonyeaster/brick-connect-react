@@ -1,8 +1,10 @@
 import React from "react";
+
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/EditDeleteDropdown.module.css";
 import { useHistory } from "react-router-dom";
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
@@ -17,7 +19,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
-export const EditDeleteDropdown = ({handleEdit, handleDelete}) => {
+export const EditDeleteDropdown = ({ handleEdit, handleDelete }) => {
   return (
     <Dropdown className="ml-auto mr-2" drop="left">
       <Dropdown.Toggle
@@ -55,31 +57,31 @@ export function ProfileEditDropdown({ id }) {
 
   return (
     <OverlayTrigger placement="bottom" overlay={<Tooltip>Edit</Tooltip>}>
-    <Dropdown className={`ml-auto px-3 ${styles.Absolute}`} drop="left">
-      <Dropdown.Toggle as={ThreeDots} />
-      <Dropdown.Menu>
-        <Dropdown.Item
-          onClick={() => history.push(`/profiles/${id}/edit`)}
-          aria-label="edit-profile"
-        >
-          <i className="fas fa-edit" /> edit profile
-        </Dropdown.Item>
-        <Dropdown.Item
-          onClick={() => history.push(`/profiles/${id}/edit/username`)}
-          aria-label="edit-username"
-        >
-          <i className="far fa-id-card" />
-          change username
-        </Dropdown.Item>
-        <Dropdown.Item
-          onClick={() => history.push(`/profiles/${id}/edit/password`)}
-          aria-label="edit-password"
-        >
-          <i className="fas fa-key" />
-          change password
-        </Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
+      <Dropdown className={`ml-auto px-3 ${styles.Absolute}`} drop="left">
+        <Dropdown.Toggle as={ThreeDots} />
+        <Dropdown.Menu>
+          <Dropdown.Item
+            onClick={() => history.push(`/profiles/${id}/edit`)}
+            aria-label="edit-profile"
+          >
+            <i className="fas fa-edit" /> edit profile
+          </Dropdown.Item>
+          <Dropdown.Item
+            onClick={() => history.push(`/profiles/${id}/edit/username`)}
+            aria-label="edit-username"
+          >
+            <i className="far fa-id-card" />
+            change username
+          </Dropdown.Item>
+          <Dropdown.Item
+            onClick={() => history.push(`/profiles/${id}/edit/password`)}
+            aria-label="edit-password"
+          >
+            <i className="fas fa-key" />
+            change password
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
     </OverlayTrigger>
   );
 }

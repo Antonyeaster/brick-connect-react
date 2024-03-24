@@ -1,18 +1,24 @@
 import React, { useState } from "react";
-import { Navbar, Container, Nav, Dropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../contexts/CurrentUserContext";
 import axios from "axios";
-import Avatar from "./Avatar";
-import ModalConfirmation from "./ModalConfirmation";
-import toast from "react-hot-toast";
-import styles from "../styles/NavBar.module.css";
-import icon from "../assets/logo-bricks.png";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
+
+import ModalConfirmation from "./ModalConfirmation";
+import toast from "react-hot-toast";
+
+import icon from "../assets/logo-bricks.png";
+import Avatar from "./Avatar";
+
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import Container from "react-bootstrap/Container";
+import Dropdown from "react-bootstrap/Dropdown";
+import styles from "../styles/NavBar.module.css";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();

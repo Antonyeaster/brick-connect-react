@@ -1,9 +1,11 @@
 import React from "react";
-import NoResults from "../assets/no-results.png";
-import styles from "../styles/NotFound.module.css";
-import Asset from "./Asset";
-import btnStyles from "../styles/Button.module.css";
 import { NavLink } from "react-router-dom";
+
+import NoResults from "../assets/no-results.png";
+import Asset from "./Asset";
+
+import styles from "../styles/NotFound.module.css";
+import btnStyles from "../styles/Button.module.css";
 
 const NotFound = () => {
   return (

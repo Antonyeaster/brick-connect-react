@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 
+import { useHistory, useParams } from "react-router-dom";
+import { axiosRes } from "../../api/axiosDefaults";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-
-import { useHistory, useParams } from "react-router-dom";
-import { axiosRes } from "../../api/axiosDefaults";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import toast from "react-hot-toast";
 
 const UserPasswordForm = () => {
   const history = useHistory();
@@ -46,9 +46,11 @@ const UserPasswordForm = () => {
     try {
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
       history.goBack();
+      toast.success("Password updated successfully!");
     } catch (err) {
       console.log(err);
       setErrors(err.response?.data);
+      toast.error("Oops, something went wrong. Please try again.");
     }
   };
 

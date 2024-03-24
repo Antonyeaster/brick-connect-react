@@ -1,9 +1,11 @@
 import React from "react";
-import appStyles from "../../App.module.css";
-import { Container } from "react-bootstrap";
-import Asset from "../../components/Asset";
+
 import Profile from "./Profile";
 import { useProfileData } from "../../contexts/ProfileDataContext";
+
+import appStyles from "../../App.module.css";
+import Container from "react-bootstrap/Container";
+import Asset from "../../components/Asset";
 
 const PopularProfiles = ({ mobile }) => {
   const { popularProfiles } = useProfileData();

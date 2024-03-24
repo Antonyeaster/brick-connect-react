@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 
+import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import { setTokenTimestamp } from "../../utils/utils";
+
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
-
-import { Link, useHistory } from "react-router-dom";
-import axios from "axios";
-import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
-import toast from "react-hot-toast";
-import signInImage from "../../assets/lego-group.jpg";
-import { Col } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
 import styles from "../../styles/SignInUpForm.module.css";
-import { setTokenTimestamp } from "../../utils/utils";
+import signInImage from "../../assets/lego-group.jpg";
+
+import toast from "react-hot-toast";
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
@@ -48,10 +50,10 @@ function SignInForm() {
     }
   };
   return (
-    <div className={styles.background}>
-      <Container className={styles.container}>
+    <div className={styles.Background}>
+      <Container className={styles.Container}>
         <Row className="justify-content-center align-items-center">
-          <Col md={6} className={styles.formCol}>
+          <Col md={6} className={styles.FormCol}>
             <div className="text-center mb-4">
               <h2 className="mt-3">Welcome back to Brick Connect!</h2>
               <h3 className="mt-3">Sign in</h3>
@@ -94,12 +96,20 @@ function SignInForm() {
             </Form>
             <Row className="justify-content-center mt-3">
               <p>
-                <strong>Don't have an account?</strong> <Link to="/signup" className={styles.signupLink}>Sign up here</Link>
+                <strong>Don't have an account?</strong>{" "}
+                <Link to="/signup" className={styles.SignupLink}>
+                  Sign up here
+                </Link>
               </p>
             </Row>
           </Col>
-          <Col md={6} className={styles.imageCol}>
-            <img src={signInImage} alt="sign in" className="img-fluid" />
+          <Col md={6} className={styles.ImageCol}>
+            <Image
+              src={signInImage}
+              alt="sign in"
+              className="img-fluid"
+              thumbnail
+            />
           </Col>
         </Row>
       </Container>
