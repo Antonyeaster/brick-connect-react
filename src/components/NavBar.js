@@ -12,6 +12,7 @@ import toast from "react-hot-toast";
 import styles from "../styles/NavBar.module.css";
 import icon from "../assets/logo-bricks.png";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
+import { removeTokenTimestamp } from "../utils/utils";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -34,6 +35,7 @@ const NavBar = () => {
     try {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
+      removeTokenTimestamp();
       handleCloseModal();
       toast.success("You've signed out successfully!");
     } catch (err) {

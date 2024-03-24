@@ -13,6 +13,7 @@ import toast from "react-hot-toast";
 import signInImage from "../../assets/lego-group.jpg";
 import { Col } from "react-bootstrap";
 import styles from "../../styles/SignInUpForm.module.css";
+import { setTokenTimestamp } from "../../utils/utils";
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
@@ -38,6 +39,7 @@ function SignInForm() {
     try {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user);
+      setTokenTimestamp(data);
       history.push("/");
       toast.success(`Welcome ${data.user.username}!`);
     } catch (err) {
