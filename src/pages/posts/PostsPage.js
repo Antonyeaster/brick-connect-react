@@ -5,6 +5,7 @@ import PopularProfiles from "../profiles/PopularProfiles";
 import { useParams } from "react-router-dom";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
@@ -25,6 +26,8 @@ function PostsPage({ message, filter = "" }) {
   const [query, setQuery] = useState("");
 
   const { category } = useParams();
+
+  const currentUser = useCurrentUser();
 
   if (category) {
     filter = `category=${category}&`;
@@ -48,7 +51,7 @@ function PostsPage({ message, filter = "" }) {
     return () => {
       clearTimeout(searchTimer);
     };
-  }, [filter, query, pathname]);
+  }, [filter, query, pathname, currentUser]);
 
   return (
     <Row className="h-100">
