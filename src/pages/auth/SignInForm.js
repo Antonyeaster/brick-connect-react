@@ -16,9 +16,11 @@ import styles from "../../styles/SignInUpForm.module.css";
 import signInImage from "../../assets/lego-group.jpg";
 
 import toast from "react-hot-toast";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
+  useRedirect('loggedIn')
   const [signInData, setSignInData] = useState({
     username: "",
     password: "",
@@ -42,7 +44,7 @@ function SignInForm() {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user);
       setTokenTimestamp(data);
-      history.push("/");
+      history.goBack();
       toast.success(`Welcome ${data.user.username}!`);
     } catch (err) {
       setErrors(err.response?.data);

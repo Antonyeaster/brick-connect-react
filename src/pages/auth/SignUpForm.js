@@ -14,8 +14,10 @@ import formImage from "../../assets/lego-group.jpg";
 import styles from "../../styles/SignInUpForm.module.css";
 
 import toast from "react-hot-toast";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const SignUpForm = () => {
+  useRedirect('loggedIn')
   const [signUpData, setSignUpData] = useState({
     username: "",
     password1: "",

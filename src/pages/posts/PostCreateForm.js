@@ -17,8 +17,10 @@ import btnStyles from "../../styles/Button.module.css";
 
 import Upload from "../../assets/upload.png";
 import toast from "react-hot-toast";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function PostCreateForm() {
+  useRedirect('loggedOut')
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
