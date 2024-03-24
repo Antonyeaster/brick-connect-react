@@ -43,6 +43,7 @@ const NavBar = () => {
       setCurrentUser(null);
       removeTokenTimestamp();
       handleCloseModal();
+      history.push('/signin');
       toast.success("You've signed out successfully!");
     } catch (err) {
       // console.log(err);
