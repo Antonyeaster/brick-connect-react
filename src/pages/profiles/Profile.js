@@ -10,7 +10,7 @@ import Avatar from "../../components/Avatar";
 import Button from "react-bootstrap/Button";
 
 const Profile = (props) => {
-  const { profile, mobile, imageSize = 55 } = props;
+  const { profile, mobile, imageSize = 45 } = props;
   const { id, following_id, image, owner } = profile;
 
   const currentUser = useCurrentUser();
