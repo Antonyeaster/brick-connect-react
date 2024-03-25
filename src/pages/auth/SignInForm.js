@@ -69,6 +69,7 @@ function SignInForm() {
                   name="username"
                   value={username}
                   onChange={handleChange}
+                  aria-label="Enter username"
                 />
               </Form.Group>
               {errors.username?.map((message, idx) => (
@@ -83,6 +84,7 @@ function SignInForm() {
                   name="password"
                   value={password}
                   onChange={handleChange}
+                  aria-label="Enter password"
                 />
               </Form.Group>
               {errors.password?.map((message, idx) => (
@@ -116,7 +118,7 @@ function SignInForm() {
           <Col md={6} className={styles.ImageCol}>
             <Image
               src={signInImage}
-              alt="sign in"
+              alt="sign in form image"
               className="img-fluid"
               thumbnail
             />

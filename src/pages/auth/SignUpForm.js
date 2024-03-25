@@ -67,6 +67,7 @@ const SignUpForm = () => {
                   name="username"
                   value={username}
                   onChange={handleChange}
+                  aria-label="Enter username"
                 />
               </Form.Group>
               {errors.username?.map((message, idx) => (
@@ -83,6 +84,7 @@ const SignUpForm = () => {
                   name="password1"
                   value={password1}
                   onChange={handleChange}
+                  aria-label="Enter password"
                 />
               </Form.Group>
               {errors.password1?.map((message, idx) => (
@@ -98,6 +100,7 @@ const SignUpForm = () => {
                   name="password2"
                   value={password2}
                   onChange={handleChange}
+                  aria-label="Enter password again"
                 />
               </Form.Group>
               {errors.password2?.map((message, idx) => (
@@ -132,7 +135,7 @@ const SignUpForm = () => {
           <Col md={6} className={styles.ImageCol}>
             <Image
               src={formImage}
-              alt="sign in"
+              alt="sign up form image"
               className="img-fluid"
               thumbnail
             />
