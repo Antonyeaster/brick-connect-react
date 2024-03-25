@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import {
   useCurrentUser,
   useSetCurrentUser,
@@ -24,6 +24,8 @@ const NavBar = () => {
   const currentUser = useCurrentUser();
 
   const setCurrentUser = useSetCurrentUser();
+
+  const history = useHistory();
 
   const [showModal, setShowModal] = useState(false);
 
