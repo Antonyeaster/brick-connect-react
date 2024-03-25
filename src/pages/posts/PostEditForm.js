@@ -101,6 +101,7 @@ function PostEditForm() {
           name="title"
           value={title}
           onChange={handleChange}
+          aria-label="Title"
         />
       </Form.Group>
       {errors.title?.map((message, idx) => (
@@ -116,6 +117,7 @@ function PostEditForm() {
           name="category"
           value={category}
           onChange={handleChange}
+          aria-label="Category"
         >
           <option value="full set builds">Full Set Builds</option>
           <option value="diy builds">DIY Builds</option>
@@ -135,6 +137,7 @@ function PostEditForm() {
           rows={6}
           value={description}
           onChange={handleChange}
+          aria-label="Description"
         />
       </Form.Group>
       {errors.description?.map((message, idx) => (
@@ -170,6 +173,7 @@ function PostEditForm() {
                 <Image
                   className={`${appStyles.Image} ${styles.UploadedImage}`}
                   src={image}
+                  alt="Post image"
                 />
               </figure>
               <div>

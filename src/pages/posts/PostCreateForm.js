@@ -20,7 +20,7 @@ import toast from "react-hot-toast";
 import { useRedirect } from "../../hooks/useRedirect";
 
 function PostCreateForm() {
-  useRedirect('loggedOut')
+  useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
@@ -84,6 +84,7 @@ function PostCreateForm() {
           name="title"
           value={title}
           onChange={handleChange}
+          aria-label="Title"
         />
       </Form.Group>
       {errors.title?.map((message, idx) => (
@@ -99,6 +100,7 @@ function PostCreateForm() {
           name="category"
           value={category}
           onChange={handleChange}
+          aria-label="Category"
         >
           <option value="full set builds">Full Set Builds</option>
           <option value="diy builds">DIY Builds</option>
@@ -118,6 +120,7 @@ function PostCreateForm() {
           rows={6}
           value={description}
           onChange={handleChange}
+          aria-label="Description"
         />
       </Form.Group>
       {errors.description?.map((message, idx) => (
