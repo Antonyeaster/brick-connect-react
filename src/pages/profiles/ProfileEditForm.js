@@ -16,6 +16,7 @@ import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import styles from "../../styles/ProfileEditForm.module.css";
 
 const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
@@ -92,6 +93,7 @@ const ProfileEditForm = () => {
           onChange={handleChange}
           name="bio"
           rows={7}
+          aria-label="Bio"
         />
       </Form.Group>
 
@@ -123,7 +125,7 @@ const ProfileEditForm = () => {
             <Form.Group>
               {image && (
                 <figure>
-                  <Image src={image} fluid />
+                  <Image src={image} fluid alt="Profile image" />
                 </figure>
               )}
               {errors?.image?.map((message, idx) => (
@@ -133,13 +135,15 @@ const ProfileEditForm = () => {
               ))}
               <div>
                 <Form.Label
-                  className={`${btnStyles.Button} ${btnStyles.Blue} btn my-auto`}
+                  className={`${btnStyles.Button} ${btnStyles.BabyBlueButtonCustom} ${btnStyles.BabyBlue}`}
                   htmlFor="image-upload"
+                  aria-label="Change the current profile image"
                 >
                   Change the image
                 </Form.Label>
               </div>
               <Form.File
+                className={styles.ChooseImage}
                 id="image-upload"
                 ref={imageFile}
                 accept="image/*"
