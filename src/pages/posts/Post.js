@@ -196,6 +196,7 @@ const Post = (props) => {
                 <OverlayTrigger
                   placement="top"
                   overlay={<Tooltip>Unlike</Tooltip>}
+                  aria-label="Unlike"
                 >
                   <i className={`fas fa-heart mr-4 ${styles.Icon}`} />
                 </OverlayTrigger>
@@ -205,6 +206,7 @@ const Post = (props) => {
                 <OverlayTrigger
                   placement="top"
                   overlay={<Tooltip>Like</Tooltip>}
+                  aria-label="Like"
                 >
                   <i className={`far fa-heart mr-4 ${styles.Icon}`} />
                 </OverlayTrigger>
@@ -245,9 +247,11 @@ const Post = (props) => {
             ? `${likes_count} Like | `
             : `${likes_count} Likes | `}
           <Link className={styles.links} to={`/posts/${id}`}>
-            {comments_count === 1
-              ? `${comments_count} Comment`
-              : `${comments_count} Comments`}
+            {comments_count === 0
+              ? "No comments yet"
+              : comments_count === 1
+              ? `View ${comments_count} Comment`
+              : `View all ${comments_count} Comments`}
           </Link>
         </Card.Text>
       </Card.Body>

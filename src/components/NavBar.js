@@ -57,6 +57,7 @@ const NavBar = () => {
       to="/posts/create"
       className={styles.NavLink}
       activeClassName={styles.Active}
+      aria-label="Add Post"
     >
       <i className="fa-solid fa-square-plus"></i>Add Post
     </NavLink>
@@ -70,18 +71,19 @@ const NavBar = () => {
             <Dropdown.Toggle
               className={`${styles.DropdownToggle} ${styles.NavDropdownCustom} ml-2`}
               id="dropdown-basic"
+              aria-label="Dropdown toggle for Feeds"
             >
               <i className="fas fa-stream"></i> Feeds
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item to="/feed" as={NavLink}>
+              <Dropdown.Item to="/feed" as={NavLink} aria-label="Feed">
                 <i className="fas fa-stream"></i> Feed
               </Dropdown.Item>
-              <Dropdown.Item as={NavLink} to="/liked">
+              <Dropdown.Item as={NavLink} to="/liked" aria-label="Liked">
                 <i className="fas fa-heart"></i> Liked
               </Dropdown.Item>
-              <Dropdown.Item as={NavLink} to="/favourited">
+              <Dropdown.Item as={NavLink} to="/favourited" aria-label="Favourited">
                 <i className="fa-solid fa-star"></i> Favourited
               </Dropdown.Item>
             </Dropdown.Menu>
@@ -90,15 +92,16 @@ const NavBar = () => {
             <Dropdown.Toggle
               className={`${styles.DropdownToggle} ${styles.NavDropdownCustom} ml-2`}
               id="dropdown-basic"
+              aria-label="Dropdown toggle for Category"
             >
               <i className="fa-solid fa-layer-group"></i> Category
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item as={NavLink} to="/category/full%20set%20builds">
+              <Dropdown.Item as={NavLink} to="/category/full%20set%20builds" aria-label="Full Set Builds">
                 Full Set Builds
               </Dropdown.Item>
-              <Dropdown.Item as={NavLink} to="/category/diy%20builds">
+              <Dropdown.Item as={NavLink} to="/category/diy%20builds" aria-label="DIY Builds">
                 DIY Builds
               </Dropdown.Item>
             </Dropdown.Menu>
@@ -110,6 +113,7 @@ const NavBar = () => {
         to="/notifications"
         className={`${styles.NavLink} ml-2`}
         activeClassName={styles.Active}
+        aria-label="Notifications"
       >
         <i className="fa-solid fa-envelope" /> Notifications
       </NavLink>
@@ -129,6 +133,7 @@ const NavBar = () => {
         to="/"
         onClick={handleShowModal}
         className={`${styles.NavLink} ml-2`}
+        aria-label="Sign out"
       >
         <i className="fas fa-sign-out-alt"></i> Sign Out
       </NavLink>
@@ -141,6 +146,7 @@ const NavBar = () => {
         to="/signin"
         className={`${styles.NavLink} ml-2`}
         activeClassName={styles.Active}
+        aria-label="Sign in"
       >
         <i className="fas fa-sign-in-alt"></i> Sign In
       </NavLink>
@@ -148,6 +154,7 @@ const NavBar = () => {
         to="/signup"
         className={`${styles.NavLink} ml-2`}
         activeClassName={styles.Active}
+        aria-label="Sign up"
       >
         <i className="fas fa-user-plus"></i> Sign Up
       </NavLink>
@@ -184,6 +191,7 @@ const NavBar = () => {
               to="/"
               className={`${styles.NavLink} ml-2`}
               activeClassName={styles.Active}
+              aria-label="Home"
             >
               <i className="fas fa-home"></i> Home
             </NavLink>
