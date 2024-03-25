@@ -219,7 +219,7 @@ const Post = (props) => {
                 <i className={`far fa-heart mr-4 ${styles.Icon}`} />
               </OverlayTrigger>
             )}
-            <Link to={`/posts/${id}`}>
+            <Link to={`/posts/${id}`} aria-label="Comments Icon">
               <i className={`far fa-comments mr-4 ${styles.Icon}`} />
             </Link>
             {!is_owner && currentUser ? (

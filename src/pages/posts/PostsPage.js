@@ -62,12 +62,16 @@ function PostsPage({ message, filter = "" }) {
           className={styles.SearchBar}
           onSubmit={(event) => event.preventDefault()}
         >
+          <Form.Label id="searchPostsLabel" className="visually-hidden">
+            Search posts
+          </Form.Label>
           <Form.Control
             type="text"
             className="mr-sm-2"
             placeholder="Search posts"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
+            aria-labelledby="searchPostsLabel"
           />
         </Form>
         {hasLoaded ? (
