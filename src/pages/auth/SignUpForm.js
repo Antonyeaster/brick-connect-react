@@ -12,12 +12,13 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import formImage from "../../assets/lego-group.jpg";
 import styles from "../../styles/SignInUpForm.module.css";
+import btnStyles from "../../styles/Button.module.css";
 
 import toast from "react-hot-toast";
 import { useRedirect } from "../../hooks/useRedirect";
 
 const SignUpForm = () => {
-  useRedirect('loggedIn')
+  useRedirect("loggedIn");
   const [signUpData, setSignUpData] = useState({
     username: "",
     password1: "",
@@ -104,9 +105,14 @@ const SignUpForm = () => {
                   {message}
                 </Alert>
               ))}
-              <Button variant="primary" type="submit">
-                Sign Up
-              </Button>
+              <Row className="justify-content-center">
+                <Button
+                  className={`${btnStyles.Button} ${btnStyles.BabyBlueButtonCustom} ${btnStyles.BabyBlue}`}
+                  type="submit"
+                >
+                  Sign Up
+                </Button>
+              </Row>
               {errors.non_field_errors?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                   {message}
