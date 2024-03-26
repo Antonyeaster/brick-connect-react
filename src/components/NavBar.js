@@ -133,7 +133,7 @@ const NavBar = () => {
         to="/"
         onClick={handleShowModal}
         className={`${styles.NavLink} ml-2`}
-        aria-label="Sign out"
+        aria-label="Sign Out"
       >
         <i className="fas fa-sign-out-alt"></i> Sign Out
       </NavLink>
