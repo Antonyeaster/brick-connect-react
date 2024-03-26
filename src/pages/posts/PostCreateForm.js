@@ -163,7 +163,7 @@ function PostCreateForm() {
                 <>
                   <figure>
                     <Image
-                      className={`${appStyles.Image} ${styles.UploadedImage}`}
+                      className={styles.UploadedImage}
                       src={image}
                       alt="Uploaded"
                     />
