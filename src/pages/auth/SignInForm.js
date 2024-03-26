@@ -108,7 +108,7 @@ function SignInForm() {
             </Form>
             <Row className="justify-content-center mt-3">
               <p>
-                <strong>Don't have an account?</strong>{" "}
+                <strong>Don&apos;t have an account?</strong>{" "}
                 <Link to="/signup" className={styles.SignupLink}>
                   Sign up here
                 </Link>
