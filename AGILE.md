@@ -7,6 +7,9 @@
     * [Sprint 2](#sprint-2)
     * [Sprint 3](#sprint-3)
     * [Sprint 4](#sprint-4)
+    * [Sprint 5](#sprint-5)
+    * [Sprint 6](#sprint-6)
+    * [Sprint 7](#sprint-7)
   * [Milestones](#milestones)
   * [Learning Outcomes](#learning-outcomes)
 
@@ -76,6 +79,30 @@ Lastly, I had originally decided to create a popular posts section; however, as 
 Sprint 4 finished a day ahead of schedule.
 
 <hr>
+
+### *Sprint 5*
+
+In Sprint 5, I wanted to get my notifications set up along with pop-up messages.
+
+I started with the notifications in the backend and got my models, serializers, signals and views set up. I was able to get my notification generated manually through my Django API admin panel. However, I wanted to use signals to trigger notifications automatically when someone does something. I spent a lot of time on this without success, so I decided to take a break from notifications and move onto pop-ups.
+
+Pop-ups went relatively smoothly once I found the correct import. I then coded into all interactive functions a toast to let the user know something had just happened or if there was an error.
+
+I returned to the notifications but unfortunately ran out of time on this sprint to finish it.
+
+I closed the sprint and moved notifications back into the list of user stories.
+
+<hr>
+
+### *Sprint 6*
+
+Sprint 6 was originally going to be all about styling. However, due to the problems I had in the last sprint, I had to add notifications too. I started with notifications and after a lot of changing things around and learning different ways to debug, it was a simple error and one I would think will stick around with me for a long time. I'd missed an 's' of the word notification.  Once I'd learned how to adjust the debug settings the error was much more readable.
+
+After notifications, I got straight into adding style to the page using CSS modules and React Bootstrap.
+
+I finished this sprint on time and ready for the final sprint.
+
+### *Sprint 7*
 
 ## **Milestones**
 
