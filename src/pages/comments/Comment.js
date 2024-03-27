@@ -150,7 +150,7 @@ const Comment = (props) => {
       {is_owner ? (
         <OverlayTrigger
           placement="top"
-          overlay={<Tooltip>You can't like your own comment!</Tooltip>}
+          overlay={<Tooltip>You can&apos;t like your own comment!</Tooltip>}
         >
           <i className={`far fa-heart mr-4 ${styles.Icon}`} />
         </OverlayTrigger>
