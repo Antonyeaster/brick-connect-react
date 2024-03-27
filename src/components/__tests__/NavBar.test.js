@@ -34,7 +34,7 @@ test("renders link to the user profile for a logged in user", async () => {
   expect(profileAvatar).toBeInTheDocument();
 });
 
-test("renders Sign in and Sign up buttons again on log out", async () => {
+test("renders Sign in and Sign up buttons again on sign out", async () => {
   render(
     <Router>
       <CurrentUserProvider>
