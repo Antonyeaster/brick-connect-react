@@ -20,7 +20,7 @@
   * [**Profile Page**](#profile-page)
     * [*Desktop*](#profile-desktop)
     * [*Mobile*](#profile-mobile)
-  * [**Post Page With Comments**](#post-page-with-comments-page)
+  * [**Post With Comments Page**](#post-with-comments-page)
     * [*Desktop*](#post-page-with-comments-desktop)
     * [*Mobile*](#post-page-with-comments-mobile)
   * [**Notifications Page**](#notifications-page-page)
