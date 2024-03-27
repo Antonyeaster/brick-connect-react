@@ -169,7 +169,7 @@ The Lighthouse test results for all major pages can be found below.
 
 ![Profile page mobile lighthouse](documentation/testing-screenshots/profile-page-mobile.png)
 
-### Post Page With Comments
+### Post With Comments Page
 
 *Desktop*
 
