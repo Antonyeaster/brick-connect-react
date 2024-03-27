@@ -39,7 +39,7 @@
 * [**Validation**](#validation)
   * [**CSS**](#css)
   * [**JavaScript**](#javascript)
-* [**User Story Testing**](#user-story-testing)
+* [**Manual Testing**](#manual-testing)
 * [**Automated Testing**](#automated-testing)
 
 
