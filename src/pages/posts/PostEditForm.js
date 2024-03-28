@@ -94,6 +94,8 @@ function PostEditForm() {
 
   const textFields = (
     <div className="text-center">
+      <h4>Update your post!</h4>
+      <hr />
       <Form.Group>
         <Form.Label>Title</Form.Label>
         <Form.Control
