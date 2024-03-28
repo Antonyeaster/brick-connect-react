@@ -8,6 +8,8 @@ import NotFound from "../../components/NotFound";
 import Notifications from "./Notification";
 import Asset from "../../components/Asset";
 import styles from "../../styles/Notifications.module.css";
+import { Col, Row } from "react-bootstrap";
+import PopularProfiles from "../profiles/PopularProfiles";
 
 const NotificationListPage = ({ notificationMessage }) => {
   const [notifications, setNotifications] = useState({ results: [] });
@@ -37,31 +39,39 @@ const NotificationListPage = ({ notificationMessage }) => {
   return !currentUser ? (
     <NotFound />
   ) : (
-    <div className={styles.Container}>
-      <h3 className={styles.Heading}>Notifications</h3>
-      {hasLoaded ? (
-        notifications.results.length ? (
-          <InfiniteScroll
-            children={notifications.results.map((notifications) => (
-              <Notifications
-                key={notifications.id}
-                {...notifications}
-                setNotifications={setNotifications}
-                notificationMessage={notificationMessage}
+    <Row>
+      <Col lg={8} className="p-0 p-lg-2">
+      <PopularProfiles mobile />
+        <div className={styles.Container}>
+          <h3 className={styles.Heading}>Notifications</h3>
+          {hasLoaded ? (
+            notifications.results.length ? (
+              <InfiniteScroll
+                children={notifications.results.map((notification) => (
+                  <Notifications
+                    key={notification.id}
+                    {...notification}
+                    setNotifications={setNotifications}
+                    notificationMessage={notificationMessage}
+                  />
+                ))}
+                dataLength={notifications.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!notifications.next}
+                next={() => fetchMoreData(notifications, setNotifications)}
               />
-            ))}
-            dataLength={notifications.results.length}
-            loader={<Asset spinner />}
-            hasMore={!!notifications.next}
-            next={() => fetchMoreData(notifications, setNotifications)}
-          />
-        ) : (
-          <p>No new notifications</p>
-        )
-      ) : (
-        <Asset spinner />
-      )}
-    </div>
+            ) : (
+              <p>No new notifications</p>
+            )
+          ) : (
+            <Asset spinner />
+          )}
+        </div>
+      </Col>
+    <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+    <PopularProfiles />
+  </Col>
+  </Row>
   );
 };
 

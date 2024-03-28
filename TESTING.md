@@ -377,7 +377,7 @@ I used [ESLint](https://eslint.org/) to test my code for the front-end. The foll
 <hr>
 
 * User Story: As a User I can view a list of the most followed profiles so that I can see which profiles are the most popular
-* Steps: Head to any page other then the sign in/up pages or the posting/editing pages and the notifications page
+* Steps: Head to any page other then the sign in/up pages or the posting/editing pages.
 * Expected Outcome: On the homepage the most followed profiles should display on the right for dektop and the top for mobile. Most followed list should display profile names and avatars
 * Result: [Test passed](https://github.com/Antonyeaster/brick-connect-react/issues/26)
 
