@@ -1,10 +1,19 @@
 # Brick Connect
 ## **Site Overview**
 
-Brick Connect, which has been crafted using React.js for its frontend development, stands as a vibrant hub within the LEGO enthusiast community, offering a bunch of interactive features tailored towards engagement and creativity. Users can create and share posts showcasing their LEGO creations, insights, and inspirations. This platform gives members the ability to engage with the community by favoriting posts for future reference and expressing appreciation through likes. Brick Connect also gives users the ability to have discussions through commenting on posts, allowing users to share feedback, ask questions, and engage in constructive conversation. Likability extends beyond posts themselves, as users can also express their approval by liking comments. Post owners are able to refine their content through editing or remove it altogether, ensuring they have full control over their contributions. 
-Brick Connect is like a digital meeting place for LEGO fans. It's where builders come together to share ideas, learn new things, and enjoy their shared love for LEGO.
+Brick Connect is an online community designed with React.js, tailored specifically for LEGO enthusiasts. It serves as a platform where users can engage with each other, share their LEGO creations, insights, and ideas.
+
+Users have the ability to create posts showcasing their LEGO builds and share them with the community. They can also interact with posts by liking them or adding them to their favorites for later reference. Additionally, users can engage in discussions by commenting on posts, allowing for feedback, questions, and conversations within the community.
+
+Brick Connect also provides users with control over their contributions. Post owners can edit or delete their posts as needed, ensuring they maintain ownership and autonomy over their content.
+
+To keep users informed and engaged, Brick Connect includes a notification system. Users receive notifications for comments left on their posts, as well as notifications when others follow them. This feature enhances user interaction and helps maintain a sense of community within Brick Connect.
+
+Overall, Brick Connect offers a welcoming and collaborative environment where LEGO enthusiasts can come together, share their passion, and enjoy the world of LEGO building.
+
 
 Brick Connect serves as a front-end component which is connected to the [Brick Connect API backend](https://github.com/Antonyeaster/brick-connect-api), developed using Django Rest Framework.
+
 <hr>
 
 ## Table of contents:
@@ -21,16 +30,13 @@ Brick Connect serves as a front-end component which is connected to the [Brick C
 1. [**Agile Development**](#agile-development)
 1. [**Features**](#features)
     * [***Navbar***](#navbar)
-    * [***Account Pages***](#account-pages)
       * [***Sign Up***](#sign-up)
       * [***Sign In***](#sign-in)
-      * [***Sign Out***](#log-out)
-    * [***About Page***](#about-page)
-    * [***Social Media Links***](#social-media-links)
+      * [***Sign Out***](#sign-out)
     * [***Posts Pages***](#home-page)
-    * [***Post Detail***](#books-page)
-    * [***Profile Pages***](#edit-book-page)
-    * [***Toasts***](#messages)
+    * [***Post Detail***](#post-detail-page)
+    * [***Profile Pages***](#Profile-page)
+    * [***Toasts***](#toasts-messages)
     * [***Defensive Design***](#defensive-design)
     * [***User Authentication***](#user-authentication)
     * [***404 Page***](#404-page)
@@ -80,6 +86,7 @@ As a **Registered** user I can:
 * Maintain my logged in status until I choose to log out so that my user experience is not compromised
 * View other users avatar so that I can easily identify that particular profile user
 * Create posts so that I can share my images with the rest of the community
+* Delete my posts so that remove any posts I don't want to display
 * View the post detail so that I can learn more about the post
 * Like or remove my like from a post so that I can express my liking of the post or remove the like if I choose to do so
 * View the most recent posts ordered by created first from top to bottom so that I can quickly be up to date with all the new posts
@@ -87,6 +94,7 @@ As a **Registered** user I can:
 * View posts I've liked so that I can share them with other or just revisit them
 * View my favourite posts so that I can separate my general liked posts from my favourites
 * Keep scrolling through the posts so that I don't have to keep pressing next page
+* Keep scrolling through comments so that I don't have to keep going to the next page
 * Click on the posts to view the post page so that I can read the comments about the post
 * Edit my post title, description and change the image so that my post can be corrected or updated after it was posted
 * Create a comment on a post so that I can share my thoughts about the post
@@ -100,7 +108,13 @@ As a **Registered** user I can:
 * Follow and unfollow so that I can control the specific posts within my feed
 * Edit my profile so that I can update my information
 * Update my username and password so that update my display name and keep my profile secure
-* Log out of my profile so that I can keep my profile secure
+* Sign out of my profile so that I can keep my profile secure
+* Favourite a post so that I can come back to them for inspiration
+* Receive notifications so that I can get updated when someone follows my profile or has made comment on my post
+* Click on delete/sign out and get a pop up so that I can confirm I defiantly want to do these things
+* Categorise my post so that other users can fin my posts easier
+* See a pop up so that I know I have done something successfully or there was a problem
+* Like a comment so that I can express myself without having to make a comment
 
 
 As an **Unregistered** User I can:
