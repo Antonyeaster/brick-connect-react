@@ -17,6 +17,7 @@ import Alert from "react-bootstrap/Alert";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/ProfileEditForm.module.css";
+import toast from "react-hot-toast";
 
 const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
@@ -77,14 +78,18 @@ const ProfileEditForm = () => {
         profile_image: data.image,
       }));
       history.goBack();
+      toast.success(" Profile successfully edited!");
     } catch (err) {
       // console.log(err);
       setErrors(err.response?.data);
+      toast.error("Oops, something went wrong. Please try again.");
     }
   };
 
   const textFields = (
     <>
+      <h4>Edit profile!</h4>
+      <hr />
       <Form.Group>
         <Form.Label>Bio</Form.Label>
         <Form.Control
