@@ -132,9 +132,31 @@ As an **Unregistered** User I can:
 
 ### **Wireframes**
 
+To give myself a guideline for the project I created wireframes for desktop and mobile.
+
+### Desktop wireframes
+
+![Desktop wireframes](documentation/wireframes/desktop-wireframes.png)
+
+### Mobile wireframes
+
+![Mobile wireframes](documentation/wireframes/mobile-wireframes.png)
+
+### Wireframe adjustments
+
+During the project I decided to make adjustments to some of the features I'd originally planned to do and the layout.
+
+* Firstly, I decided to not implement popular posts at this stage. I have left this within the wireframes as this will be added to future enhancments.
+
+* I've also decided to move the icons within the post card, this was to make room for the text writted like and comment count.
+
+* I used dropdowns within the navbar to keep the navbar more tidy and less clustered.
+
 <hr>
 
 ### **Database Schema**
+
+
 
 <hr>
 
