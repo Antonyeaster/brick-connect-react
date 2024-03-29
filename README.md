@@ -587,6 +587,7 @@ The Brick Connect API can be found [here](https://github.com/Antonyeaster/brick-
 * [React Infinite Scroll](https://www.npmjs.com/package/react-infinite-scroll-component) for infinite scrolling on the comments, posts, and notifications
 * [Gitpod](https://www.gitpod.io/) to create, load and push my code to GitHub
 * [GitHub](https://github.com/home?ef_id=_k_Cj0KCQjwqpSwBhClARIsADlZ_Tm8cXuoED2r24fakY1kqXeptQcrc2ncHiUqOaa_vuLGhA6w5nZTWXUaAr6CEALw_wcB_k_&OCID=AIDcmm153qff2f_SEM__k_Cj0KCQjwqpSwBhClARIsADlZ_Tm8cXuoED2r24fakY1kqXeptQcrc2ncHiUqOaa_vuLGhA6w5nZTWXUaAr6CEALw_wcB_k_&gad_source=1&gclid=Cj0KCQjwqpSwBhClARIsADlZ_Tm8cXuoED2r24fakY1kqXeptQcrc2ncHiUqOaa_vuLGhA6w5nZTWXUaAr6CEALw_wcB) to create and store my repository for this project
+* [Quillbot](https://quillbot.com/grammar-check) used to check grammer
 * Git - for version control
 * CSS - for custom styling in conjunction to Bootstrap
 * HTML - for small amounts of HTML across the site
