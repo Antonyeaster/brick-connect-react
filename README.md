@@ -37,7 +37,7 @@ Brick Connect serves as a front-end component which is connected to the [Brick C
       * [**Sign Up**](#sign-up)
       * [**Sign In**](#sign-in)
       * [**Sign Out**](#sign-out)
-    * [**Posts Pages**](#posts-page)
+    * [**Posts Pages**](#posts-pages)
     * [**Post Detail**](#post-detail)
     * [**Profile Page**](#Profile-page)
     * [**Notifications Page**](#notifications-page)
