@@ -20,6 +20,13 @@ Brick Connect serves as a front-end component which is connected to the [Brick C
 
 <br>
 
+* View the final deployment of the frontend site [here](https://brick-connect-react-c56aa699ed51.herokuapp.com/
+)
+* View the final deployment of the API [here](https://brick-connect-api-e6b45c41a17a.herokuapp.com/)
+* View the API repository [here](https://github.com/Antonyeaster/brick-connect-api/tree/main)
+
+<br>
+
 ## Table of contents:
 1. [**Site Overview**](#site-overview)
 1. [**Planning stage**](#planning-stage)
