@@ -11,8 +11,8 @@
     * [Sprint 6](#sprint-6)
     * [Sprint 7](#sprint-7)
   * [Milestones](#milestones)
+  * [Project Board](#project-board)
   * [Labels](#labels)
-  * [Learning Outcomes](#learning-outcomes)
 
 <hr>
 
@@ -158,6 +158,10 @@ For this project I completed seven Milestones. They were all vital to the develo
 ![Sprint 7](documentation/readme-images/sprint-7.png)
 
 <hr>
+
+## Project Board
+
+You can view my Project board [here](https://github.com/users/Antonyeaster/projects/8)
 
 ## Labels
 
