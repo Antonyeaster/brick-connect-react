@@ -12,6 +12,8 @@
         -   [**Create Heroku App**](#create-heroku-app)
         -   [**Connect to the API**](#connect-to-the-api)
         -   [**Final Deployment**](#final-deployment)
+        -   [**Forking the GitHub Repository**](#forking-the-github-repository)
+        -   [**Making a Local Clone**](#making-a-local-clone)
 
 ## Initial Deployment
 
@@ -67,5 +69,20 @@ This will install a package needed to serve the single page application on herok
 
 Add a 'Procfile' at the root of the project with the following web command: `web: serve -s build`
 
+### Forking the GitHub Repository
+
+* Go to the GitHub repository
+* Click the 'Fork' button in the top right corner
+* This will create a copy of the repository in your own GitHub account
+
+### Making a Local Clone
+
+* Go to the GitHub repository 
+* Click the 'Code' button above the list of files
+* Click the HTTPS button to clone with HTTPS and copy the link
+* Open to command line interface on your local computer
+* Change the current working directory to the one where you want the cloned directory
+* Type git clone and paste in the URL
+* Press enter to create your local clone
 
 **[Back to Readme](README.md)**
