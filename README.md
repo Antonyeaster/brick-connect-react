@@ -634,6 +634,8 @@ The upload and not found icons were also created on [Flat Icon](https://www.flat
 
 * [Django Rest Framework](https://www.django-rest-framework.org/) This was too used across the build of the backend API
 
+* [CamelCase](https://www.geeksforgeeks.org/how-to-convert-string-to-camel-case-in-javascript/) Used to change categories into capital for certain letters
+
 Other sources include:
 
 * Code Institute LMS
