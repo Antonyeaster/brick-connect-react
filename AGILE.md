@@ -11,11 +11,14 @@
     * [Sprint 6](#sprint-6)
     * [Sprint 7](#sprint-7)
   * [Milestones](#milestones)
+  * [Labels](#labels)
   * [Learning Outcomes](#learning-outcomes)
 
 <hr>
 
 ## **Overview**
+
+This was my second time using Agile to plan my project. After finding it very helpful the first time, I'm glad to say it's done just as well this time. I find the process of working on one task at a time very helpful for staying on track. That's not to say I didn't get lost a few times, but as the issues and milestones were there, all I had to do was go over them to get back on track. I recorded my sprint notes during the process and have documented them below. 
 
 <hr>
 
@@ -104,8 +107,83 @@ I finished this sprint on time and ready for the final sprint.
 
 ### *Sprint 7*
 
+Sprint 7 was the final sprint for this project. This sprint was all about the remaining developer jobs, testing and documenting. This sprint went smoothly without any problems.
+
+Adding the documentation is just time consuming. However, seeing it all come together makes it all worth it.
+
+This sprint was completed on the date I had set for myself.
+
 ## **Milestones**
+
+For this project I completed seven Milestones. They were all vital to the development of this project. 
+
+### Sprint 1 - Basic set up
+
+![Sprint 1](documentation/readme-images/sprint-1.png)
 
 <hr>
 
-## Learning Outcomes
+### Sprint 2 Authentication and Post functionality
+
+![Sprint 2](documentation/readme-images/sprint-2.png)
+
+<hr>
+
+### Sprint 3 Comments, Followers, Profile Page, Favourites
+
+![Sprint 3](documentation/readme-images/sprint-3.png)
+
+<hr>
+
+### Sprint 4 Categories, like Comment, Popular posts, Defensive design
+
+![Sprint 4](documentation/readme-images/sprint-4.png)
+
+<hr>
+
+### Sprint 5 Notifications, message pop ups
+
+![Sprint 5](documentation/readme-images/sprint-5.png)
+
+<hr>
+
+### Sprint 6 Styling - Notifications
+
+![Sprint 6](documentation/readme-images/sprint-6.png)
+
+<hr>
+
+### Sprint 7 Developer Testing and Documentation
+
+![Sprint 7](documentation/readme-images/sprint-7.png)
+
+<hr>
+
+## Labels
+
+I separated my issues into multiple labels but the most important ones are documented below:
+
+### Must Have
+
+![must have 1](documentation/readme-images/must-have.png)
+![must have 2](documentation/readme-images/must-have-2.png)
+
+<hr>
+
+### Could Have
+
+![could have](documentation/readme-images/could-have.png)
+
+<hr>
+
+### Should Have
+
+![should have](documentation/readme-images/should-have.png)
+
+<hr>
+
+### Won't Have
+
+![won't have](documentation/readme-images/wont-have.png)
+
+Back to [README](README.md)
