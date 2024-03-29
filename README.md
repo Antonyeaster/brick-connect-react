@@ -51,7 +51,7 @@ Brick Connect serves as a front-end component which is connected to the [Brick C
 1. [**Technologies Used**](#technologies-used)
 1. [**Media**](#media)
 1. [**Credits**](#credits)
-1. [**Honourable mentions**](#honorable-mentions)
+1. [**Honourable mentions**](#honourable-mentions)
 1. [**Disclaimer**](#disclaimer)
 
 <hr>
@@ -337,7 +337,7 @@ The DIY Builds is the same as full set builds but only renders the DIY Builds.
 
 <hr>
 
-### Post Detail Page
+### Post Detail
 
 If a user clicks on a post they will be taken to the post detail page.
 
