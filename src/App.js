@@ -103,6 +103,7 @@ function App() {
             path="/profiles/:id/edit"
             render={() => <ProfileEditForm />}
           />
+          {/* Route for catching any unmatched routes */}
           <Route render={() => <NotFound />} />
         </Switch>
       </Container>
