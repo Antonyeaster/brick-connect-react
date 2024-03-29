@@ -29,12 +29,17 @@ const Notifications = (props) => {
     setShowModal(true);
   };
 
+  //
   const handleReadStatus = async () => {
     try {
+      // Send a patch request to update the read status of the notification
       await axiosRes.patch(`/notifications/${id}`, { read: !read });
       setNotifications((prevNotifications) => ({
         ...prevNotifications,
+        // Update the results array by mapping through each notification
         results: prevNotifications.results.map((notifications) => {
+          // If the notification id matches the id being updated,
+          // update its read status to the opposite of the current value
           return notifications.id === id
             ? { ...notifications, read: !read }
             : notifications;
@@ -44,7 +49,7 @@ const Notifications = (props) => {
       // console.log(err);
     }
   };
-
+  // Function to handle the deletion of the notification
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/notifications/${id}`);
@@ -69,8 +74,10 @@ const Notifications = (props) => {
           <small className="pl-2 pt-2">{createdAt}</small>
         </div>
         <Card.Body>
+          {/* Notification sender information */}
           <Avatar src={profileImage} height={40} />
           <Card.Text>{text}</Card.Text>
+          {/* If the notification is not equal to follow, display a button to take the user to the commented post*/}
           {category !== "follow" && (
             <Button
               as={Link}
@@ -83,6 +90,7 @@ const Notifications = (props) => {
         </Card.Body>
         <div className={styles.ButtonContainer}>
           <span>
+            {/* Buttons to delete and handle read status*/}
             <Button
               className={`btn-danger mb-2 ${btnStyles.Button}`}
               aria-label="Delete notification"
@@ -109,6 +117,7 @@ const Notifications = (props) => {
           )}
         </div>
       </Card>
+      {/* Modal to confirm deletion */}
       <ModalConfirmation
         show={showModal}
         setShow={setShowModal}

@@ -17,6 +17,9 @@ import btnStyles from "../../styles/Button.module.css";
 import toast from "react-hot-toast";
 import { useRedirect } from "../../hooks/useRedirect";
 
+/*
+  Create the sign up form with username and password1 and password2 fields
+*/
 const SignUpForm = () => {
   useRedirect("loggedIn");
   const [signUpData, setSignUpData] = useState({
@@ -36,7 +39,9 @@ const SignUpForm = () => {
       [event.target.name]: event.target.value,
     });
   };
-
+    /*
+      This function makes a post request to Sign up once the user submits the form
+    */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -59,6 +64,7 @@ const SignUpForm = () => {
               <h3 className="mt-3">Sign Up</h3>
             </div>
             <Form onSubmit={handleSubmit}>
+              {/* Username */}
               <Form.Group controlId="username">
                 <Form.Label className="d-none">Username</Form.Label>
                 <Form.Control
@@ -77,6 +83,7 @@ const SignUpForm = () => {
               ))}
 
               <Form.Group controlId="password1">
+                {/* Password */}
                 <Form.Label className="d-none">Password</Form.Label>
                 <Form.Control
                   type="password"
@@ -93,6 +100,7 @@ const SignUpForm = () => {
                 </Alert>
               ))}
               <Form.Group controlId="password2">
+                {/* Password confirm */}
                 <Form.Label className="d-none">Confirm Password</Form.Label>
                 <Form.Control
                   type="password"
@@ -109,6 +117,7 @@ const SignUpForm = () => {
                 </Alert>
               ))}
               <Row className="justify-content-center">
+                {/* Sign up button */}
                 <Button
                   className={`${btnStyles.Button} ${btnStyles.BabyBlueButtonCustom} ${btnStyles.BabyBlue}`}
                   type="submit"
@@ -122,6 +131,7 @@ const SignUpForm = () => {
                 </Alert>
               ))}
             </Form>
+            {/* Sign in link */}
             <Row className="justify-content-center mt-3">
               <p>
                 <strong>Already have an account?</strong>{" "}
@@ -131,7 +141,7 @@ const SignUpForm = () => {
               </p>
             </Row>
           </Col>
-
+          {/* Image */}
           <Col md={6} className={styles.ImageCol}>
             <Image
               src={formImage}

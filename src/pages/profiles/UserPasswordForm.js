@@ -26,7 +26,8 @@ const UserPasswordForm = () => {
   const { new_password1, new_password2 } = userData;
 
   const [errors, setErrors] = useState({});
-
+  
+  // Handle change in the form input fields
   const handleChange = (event) => {
     setUserData({
       ...userData,
@@ -59,6 +60,7 @@ const UserPasswordForm = () => {
       <Col className="py-2 mx-auto text-center" md={6}>
         <Container className={appStyles.Content}>
           <Form onSubmit={handleSubmit}>
+            {/* New Password */}
             <Form.Group>
               <Form.Label>New password</Form.Label>
               <Form.Control
@@ -76,6 +78,7 @@ const UserPasswordForm = () => {
               </Alert>
             ))}
             <Form.Group>
+              {/* Confirm new Password */}
               <Form.Label>Confirm password</Form.Label>
               <Form.Control
                 placeholder="confirm new password"
@@ -91,12 +94,14 @@ const UserPasswordForm = () => {
                 {message}
               </Alert>
             ))}
+            {/* Cancel Button */}
             <Button
               className={`${btnStyles.Button} ${btnStyles.BlackButtonCustom} ${btnStyles.Black}`}
               onClick={() => history.goBack()}
             >
               Cancel
             </Button>
+            {/* Save button */}
             <Button
               type="submit"
               className={`${btnStyles.Button} ${btnStyles.BabyBlueButtonCustom} ${btnStyles.BabyBlue}`}

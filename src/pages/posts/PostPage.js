@@ -20,10 +20,13 @@ function PostPage() {
   const { id } = useParams();
   const [post, setPost] = useState({ results: [] });
 
+  // Get the current user and their profile image
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
+
   const [comments, setComments] = useState({ results: [] });
 
+  // Use useEffect to fetch post and comments data on component mount
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -46,6 +49,7 @@ function PostPage() {
         <PopularProfiles mobile />
         <Post {...post.results[0]} setPosts={setPost} postPage />
         <Container className={appStyles.Content}>
+          {/* If a user is present render the CommentCreateForm */}
           {currentUser ? (
             <CommentCreateForm
               profile_id={currentUser.profile_id}
@@ -73,8 +77,10 @@ function PostPage() {
               next={() => fetchMoreData(comments, setComments)}
             />
           ) : currentUser ? (
+            // Render a message to let the user know there are no comments
             <span>No comments yet, be the first to comment.</span>
           ) : (
+            // Render a message if there are no comments
             <span>No comments yet.</span>
           )}
         </Container>

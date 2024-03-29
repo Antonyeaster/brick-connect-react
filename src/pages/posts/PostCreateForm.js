@@ -35,14 +35,14 @@ function PostCreateForm() {
   const imageInput = useRef(null);
 
   const history = useHistory();
-
+  // Function to handle the form field changes
   const handleChange = (event) => {
     setPostData({
       ...postData,
       [event.target.name]: event.target.value,
     });
   };
-
+  // Function to handle the change of the image
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -52,11 +52,11 @@ function PostCreateForm() {
       });
     }
   };
-
+  // Function to handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
-
+    // Append title, description, category and image data to the FormData object
     formData.append("title", title);
     formData.append("description", description);
     formData.append("category", category);
@@ -80,6 +80,7 @@ function PostCreateForm() {
       <h4>Create your post!</h4>
       <hr />
       <Form.Group>
+        {/* Title */}
         <Form.Label>Title</Form.Label>
         <Form.Control
           type="text"
@@ -96,6 +97,7 @@ function PostCreateForm() {
       ))}
 
       <Form.Group>
+        {/* Category */}
         <Form.Label>Category</Form.Label>
         <Form.Control
           as="select"
@@ -115,6 +117,7 @@ function PostCreateForm() {
       ))}
 
       <Form.Group>
+        {/* Description */}
         <Form.Label>Description</Form.Label>
         <Form.Control
           as="textarea"
@@ -130,14 +133,14 @@ function PostCreateForm() {
           {message}
         </Alert>
       ))}
-
+      {/* Cancel button */}
       <Button
         onClick={() => history.goBack()}
         className={`${btnStyles.Button} ${btnStyles.BlackButtonCustom} ${btnStyles.Black}`}
       >
         Cancel
       </Button>
-
+      {/* Create button */}
       <Button
         className={`${btnStyles.Button} ${btnStyles.BabyBlueButtonCustom} ${btnStyles.BabyBlue}`}
         type="submit"
@@ -180,6 +183,7 @@ function PostCreateForm() {
                   </div>
                 </>
               ) : (
+                // Display the upload button and message when no image is selected
                 <Form.Label
                   className="d-flex justify-content-center"
                   htmlFor="image-upload"
@@ -187,6 +191,7 @@ function PostCreateForm() {
                   <Asset src={Upload} message="Click here to upload an image" />
                 </Form.Label>
               )}
+              {/* Input element so the user can select an image from their device */}
               <Form.File
                 className={styles.ChooseImage}
                 id="image-upload"

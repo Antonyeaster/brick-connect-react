@@ -46,6 +46,9 @@ const Comment = (props) => {
     setShowModal(false);
   };
 
+  /*
+    Handles the addition of a comment like and adds 1 to the count
+  */
   const handleCommentLike = async () => {
     try {
       const { data } = await axiosRes.post("/commentlike/", { comment: id });
@@ -66,6 +69,9 @@ const Comment = (props) => {
     }
   };
 
+  /*
+    Handles the deletion of a comment like and reduces the count by 1
+  */
   const handleCommentUnlike = async () => {
     try {
       await axiosRes.delete(`/commentlike/${commentlike_id}/`);
@@ -115,6 +121,7 @@ const Comment = (props) => {
     <>
       <hr />
       <Media>
+        {/*Comment owner Avatar name and date the comment was made */}
         <Link to={`/profiles/${profile_id}`}>
           <Avatar src={profile_image} />
         </Link>
@@ -147,6 +154,7 @@ const Comment = (props) => {
           />
         )}
       </Media>
+      {/* Handling the comment like heart when they are clicked */}
       {is_owner ? (
         <OverlayTrigger
           placement="top"
@@ -171,6 +179,7 @@ const Comment = (props) => {
         </OverlayTrigger>
       )}
       {commentlike_count}
+      {/* Modal to confirm deletion */}
       <ModalConfirmation
         show={showModal}
         setShow={setShowModal}

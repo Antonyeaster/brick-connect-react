@@ -28,13 +28,16 @@ const UsernameForm = () => {
   const setCurrentUser = useSetCurrentUser();
 
   useEffect(() => {
+    // Set the initial value of the username field to the current username
     if (currentUser?.profile_id?.toString() === id) {
       setUsername(currentUser.username);
     } else {
+      // Redirect to home if the current user is not the owner of the profile
       history.push("/");
     }
   }, [currentUser, history, id]);
 
+  // Handle the form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -60,6 +63,7 @@ const UsernameForm = () => {
         <Container className={appStyles.Content}>
           <Form onSubmit={handleSubmit} className="my-2">
             <Form.Group>
+              {/* Change username */}
               <Form.Label>Change username</Form.Label>
               <Form.Control
                 placeholder="username"
@@ -74,12 +78,14 @@ const UsernameForm = () => {
                 {message}
               </Alert>
             ))}
+            {/* Cancel button */}
             <Button
               className={`${btnStyles.Button} ${btnStyles.BlackButtonCustom} ${btnStyles.Black}`}
               onClick={() => history.goBack()}
             >
               Cancel
             </Button>
+            {/* Save button */}
             <Button
               className={`${btnStyles.Button} ${btnStyles.BabyBlueButtonCustom} ${btnStyles.BabyBlue}`}
               type="submit"

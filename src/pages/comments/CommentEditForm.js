@@ -38,6 +38,7 @@ function CommentEditForm(props) {
             : comment;
         }),
       }));
+      // Hide the edited form after submit
       setShowEditForm(false);
       toast.success("Comment edited successfully!");
     } catch (err) {
@@ -58,6 +59,7 @@ function CommentEditForm(props) {
         />
       </Form.Group>
       <div className="text-right">
+        {/* Cancel button to stop editing */}
         <button
           className={`${btnStyles.Button} ${btnStyles.BlackButtonCustom} ${btnStyles.Black}`}
           onClick={() => setShowEditForm(false)}
@@ -65,6 +67,7 @@ function CommentEditForm(props) {
         >
           Cancel
         </button>
+        {/* Save button to submit the edited comment */}
         <button
           className={`${btnStyles.Button} ${btnStyles.BabyBlueButtonCustom} ${btnStyles.BabyBlue}`}
           disabled={!content.trim()}

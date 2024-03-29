@@ -15,7 +15,7 @@ const NotificationListPage = ({ notificationMessage }) => {
   const [notifications, setNotifications] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
-
+  // Gets notification from the data
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
@@ -36,12 +36,13 @@ const NotificationListPage = ({ notificationMessage }) => {
     };
   }, []);
 
+  // Displays the notifications with the InfiniteScroll ability
   return !currentUser ? (
     <NotFound />
   ) : (
     <Row>
       <Col lg={8} className="p-0 p-lg-2">
-      <PopularProfiles mobile />
+        <PopularProfiles mobile />
         <div className={styles.Container}>
           <h3 className={styles.Heading}>Notifications</h3>
           {hasLoaded ? (
@@ -68,10 +69,11 @@ const NotificationListPage = ({ notificationMessage }) => {
           )}
         </div>
       </Col>
-    <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-    <PopularProfiles />
-  </Col>
-  </Row>
+      {/* Displays the popular profiles */}
+      <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+        <PopularProfiles />
+      </Col>
+    </Row>
   );
 };
 

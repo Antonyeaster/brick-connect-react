@@ -35,6 +35,7 @@ const ProfileEditForm = () => {
 
   const [errors, setErrors] = useState({});
 
+  // Effect to fetch profile data on component mount
   useEffect(() => {
     const handleMount = async () => {
       if (currentUser?.profile_id?.toString() === id) {
@@ -54,6 +55,7 @@ const ProfileEditForm = () => {
     handleMount();
   }, [currentUser, history, id]);
 
+  // Function handles a form input change
   const handleChange = (event) => {
     setProfileData({
       ...profileData,
@@ -61,12 +63,15 @@ const ProfileEditForm = () => {
     });
   };
 
+  // Handles the submission of the form
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
+    // Appends the new name and bio to the formData if changed
     formData.append("name", name);
     formData.append("bio", bio);
 
+    // Appends the new image to the formData if changed
     if (imageFile?.current?.files[0]) {
       formData.append("image", imageFile?.current?.files[0]);
     }
@@ -91,6 +96,7 @@ const ProfileEditForm = () => {
       <h4>Edit profile!</h4>
       <hr />
       <Form.Group>
+        {/* Bio */}
         <Form.Label>Bio</Form.Label>
         <Form.Control
           as="textarea"
@@ -107,12 +113,14 @@ const ProfileEditForm = () => {
           {message}
         </Alert>
       ))}
+      {/* Cancel button */}
       <Button
         className={`${btnStyles.Button} ${btnStyles.BlackButtonCustom} ${btnStyles.Black}`}
         onClick={() => history.goBack()}
       >
         Cancel
       </Button>
+      {/* Save button */}
       <Button
         className={`${btnStyles.Button} ${btnStyles.BabyBlueButtonCustom} ${btnStyles.BabyBlue}`}
         type="submit"
@@ -147,6 +155,7 @@ const ProfileEditForm = () => {
                   Change the image
                 </Form.Label>
               </div>
+              {/* Input element so the user can select an image from their device */}
               <Form.File
                 className={styles.ChooseImage}
                 id="image-upload"

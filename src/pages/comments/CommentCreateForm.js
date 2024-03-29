@@ -13,10 +13,11 @@ function CommentCreateForm(props) {
   const { post, setPost, setComments, profileImage, profile_id } = props;
   const [content, setContent] = useState("");
 
+  // Handle change in the comment content input
   const handleChange = (event) => {
     setContent(event.target.value);
   };
-
+  // Handle form submission to create a new comment
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -24,6 +25,7 @@ function CommentCreateForm(props) {
         content,
         post,
       });
+      // Update comments and posts after comment successfully created
       setComments((prevComments) => ({
         ...prevComments,
         results: [data, ...prevComments.results],
@@ -36,6 +38,7 @@ function CommentCreateForm(props) {
           },
         ],
       }));
+      // Clear the comment form after posting
       setContent("");
       toast.success("Comment posted!");
     } catch (err) {
@@ -63,6 +66,7 @@ function CommentCreateForm(props) {
           />
         </InputGroup>
       </Form.Group>
+      {/* Display the "Post" button*/}
       <button
         className={`${btnStyles.Button} ${btnStyles.BabyBlueButtonCustom} ${btnStyles.BabyBlue} d-block ml-auto`}
         disabled={!content.trim()}

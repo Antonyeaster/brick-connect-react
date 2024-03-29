@@ -19,6 +19,9 @@ import signInImage from "../../assets/lego-group.jpg";
 import toast from "react-hot-toast";
 import { useRedirect } from "../../hooks/useRedirect";
 
+/*
+  Create the sign in form with username and password fields
+*/
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
   useRedirect("loggedIn");
@@ -39,6 +42,9 @@ function SignInForm() {
     });
   };
 
+  /*
+    This function makes a post request to Sign in once the user submits the form
+  */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -62,6 +68,7 @@ function SignInForm() {
               <h3 className="mt-3">Sign in</h3>
             </div>
             <Form onSubmit={handleSubmit}>
+              {/* Username */}
               <Form.Group controlId="username">
                 <Form.Control
                   type="text"
@@ -78,6 +85,7 @@ function SignInForm() {
                 </Alert>
               ))}
               <Form.Group controlId="password">
+                {/* Password */}
                 <Form.Control
                   type="password"
                   placeholder="Password"
@@ -93,6 +101,7 @@ function SignInForm() {
                 </Alert>
               ))}
               <Row className="justify-content-center">
+                {/* Sign in button */}
                 <Button
                   className={`${btnStyles.Button} ${btnStyles.BabyBlueButtonCustom} ${btnStyles.BabyBlue}`}
                   type="submit"
@@ -106,6 +115,7 @@ function SignInForm() {
                 </Alert>
               ))}
             </Form>
+            {/* Sign up link */}
             <Row className="justify-content-center mt-3">
               <p>
                 <strong>Don&apos;t have an account?</strong>{" "}
@@ -115,6 +125,7 @@ function SignInForm() {
               </p>
             </Row>
           </Col>
+          {/* Image */}
           <Col md={6} className={styles.ImageCol}>
             <Image
               src={signInImage}

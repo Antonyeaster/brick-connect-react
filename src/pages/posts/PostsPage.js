@@ -33,6 +33,7 @@ function PostsPage({ message, filter = "" }) {
     filter = `category=${category}&`;
   }
 
+  // UseEffect to fetch posts data when filter, query, or pathname changes
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -44,6 +45,9 @@ function PostsPage({ message, filter = "" }) {
       }
     };
 
+    // Set hasLoaded to false and use a timer of 1 second 
+    // to wait for user to stop typing before making the API call
+    // This prevent flashing pages
     setHasLoaded(false);
     const searchTimer = setTimeout(() => {
       fetchPosts();
@@ -56,7 +60,9 @@ function PostsPage({ message, filter = "" }) {
   return (
     <Row className="h-100">
       <Col className="py-1 p-0 p-lg-2" lg={8}>
+        {/* Popular profiles for mobile */}
         <PopularProfiles mobile />
+        {/* Search bar with search icon */}
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
           className={styles.SearchBar}
@@ -75,6 +81,7 @@ function PostsPage({ message, filter = "" }) {
         {hasLoaded ? (
           <>
             {posts.results.length ? (
+              // Render InfiniteScroll
               <InfiniteScroll
                 children={posts.results.map((post) => (
                   <Post key={post.id} {...post} setPosts={setPosts} />
@@ -97,6 +104,7 @@ function PostsPage({ message, filter = "" }) {
         )}
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+        {/* Popular profiles for desktop */}
         <PopularProfiles />
       </Col>
     </Row>

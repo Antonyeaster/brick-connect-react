@@ -36,6 +36,7 @@ function ProfilePage() {
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
 
+  // Effect to fetch profile data and posts on component mount
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -62,6 +63,7 @@ function ProfilePage() {
       {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
+          {/* Circle profile image */}
           <Image
             className={styles.ProfileImage}
             roundedCircle
@@ -72,6 +74,7 @@ function ProfilePage() {
         <Col lg={6}>
           <h3 className="m-2">{profile?.owner}</h3>
           <Row className="justify-content-center no-gutters">
+            {/* Profile stats */}
             <Col xs={4} className="my-2">
               <div>{profile?.posts_count}</div>
               <div>Posts</div>
@@ -87,6 +90,7 @@ function ProfilePage() {
           </Row>
         </Col>
         <Col lg={3} className="text-lg-right">
+          {/* Follow and unfollow buttons if they are a current user but not the profile owner */}
           {currentUser &&
             !is_owner &&
             (profile?.following_id ? (
@@ -115,6 +119,7 @@ function ProfilePage() {
       <hr />
       <p className="text-center">{profile?.owner}&apos;s posts</p>
       <hr />
+      {/* List the profile posts with the InfiniteScroll */}
       {profilePosts.results.length ? (
         <InfiniteScroll
           children={profilePosts.results.map((post) => (
@@ -137,6 +142,7 @@ function ProfilePage() {
   return (
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
+        {/* PopularProfiles for mobile */}
         <PopularProfiles mobile />
         <Container className={appStyles.Content}>
           {hasLoaded ? (
@@ -149,6 +155,7 @@ function ProfilePage() {
           )}
         </Container>
       </Col>
+      {/* PopularProfiles for desktop */}
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
       </Col>

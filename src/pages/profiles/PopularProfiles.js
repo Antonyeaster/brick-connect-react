@@ -17,15 +17,18 @@ const PopularProfiles = ({ mobile }) => {
       }`}
     >
       {popularProfiles.results.length ? (
+        // Render popular profiles if there are results
         <>
           <p>Most followed profiles.</p>
           {mobile ? (
+            // Render mobile layout with up to 3 profiles side by side horizontal
             <div className="d-flex justify-content-around">
               {popularProfiles.results.slice(0, 3).map((profile) => (
                 <Profile key={profile.id} profile={profile} mobile />
               ))}
             </div>
           ) : (
+            // Render profiles in a vertical display
             popularProfiles.results.map((profile) => (
               <Profile key={profile.id} profile={profile} />
             ))

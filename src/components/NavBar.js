@@ -45,7 +45,7 @@ const NavBar = () => {
       setCurrentUser(null);
       removeTokenTimestamp();
       handleCloseModal();
-      history.push('/signin');
+      history.push("/signin");
       toast.success("You've signed out successfully!");
     } catch (err) {
       // console.log(err);
@@ -62,6 +62,11 @@ const NavBar = () => {
       <i className="fa-solid fa-square-plus"></i>Add Post
     </NavLink>
   );
+
+  /*
+  Logged in icons, Feeds dropdown, Category dropdown,
+  Notifications, Profile username and sign out
+  */
 
   const loggedInIcons = (
     <>
@@ -83,7 +88,11 @@ const NavBar = () => {
               <Dropdown.Item as={NavLink} to="/liked" aria-label="Liked">
                 <i className="fas fa-heart"></i> Liked
               </Dropdown.Item>
-              <Dropdown.Item as={NavLink} to="/favourited" aria-label="Favourited">
+              <Dropdown.Item
+                as={NavLink}
+                to="/favourited"
+                aria-label="Favourited"
+              >
                 <i className="fa-solid fa-star"></i> Favourited
               </Dropdown.Item>
             </Dropdown.Menu>
@@ -98,10 +107,18 @@ const NavBar = () => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item as={NavLink} to="/category/full%20set%20builds" aria-label="Full Set Builds">
+              <Dropdown.Item
+                as={NavLink}
+                to="/category/full%20set%20builds"
+                aria-label="Full Set Builds"
+              >
                 Full Set Builds
               </Dropdown.Item>
-              <Dropdown.Item as={NavLink} to="/category/diy%20builds" aria-label="DIY Builds">
+              <Dropdown.Item
+                as={NavLink}
+                to="/category/diy%20builds"
+                aria-label="DIY Builds"
+              >
                 DIY Builds
               </Dropdown.Item>
             </Dropdown.Menu>
@@ -139,6 +156,10 @@ const NavBar = () => {
       </NavLink>
     </>
   );
+
+  /*
+  Logged out icons, Sign in, sign up, Home
+  */
 
   const loggedOutIcons = (
     <>

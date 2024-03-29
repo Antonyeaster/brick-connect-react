@@ -7,6 +7,8 @@ import Asset from "./Asset";
 import styles from "../styles/NotFound.module.css";
 import btnStyles from "../styles/Button.module.css";
 
+// Display if invalid URL is entered
+
 const NotFound = () => {
   return (
     <div className={styles.NotFound}>

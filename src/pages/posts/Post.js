@@ -41,6 +41,9 @@ const Post = (props) => {
   const history = useHistory();
   const [showModal, setShowModal] = useState(false);
 
+  // Map each word to camelCase unless its equal to diy then use uppercase
+  // I used the link below to help with camelcase
+  // https://www.geeksforgeeks.org/how-to-convert-string-to-camel-case-in-javascript/
   const camelcase = (str) => {
     return str
       .split(" ")
@@ -54,18 +57,22 @@ const Post = (props) => {
       .join(" ");
   };
 
+  // Used to show the modal
   const handleShowModal = () => {
     setShowModal(true);
   };
 
+  // Used to close the modal
   const handleCloseModal = () => {
     setShowModal(false);
   };
 
+  // Function to send user to the edit post page with the seleced id
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
   };
 
+  // Function to delete a post with the seleced id
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
@@ -78,6 +85,7 @@ const Post = (props) => {
     }
   };
 
+  // Function to handle post like by using the post id and adding a like id
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { post: id });
@@ -94,6 +102,7 @@ const Post = (props) => {
     }
   };
 
+  // Function to handle post unlike by removing the like id
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);
@@ -110,6 +119,7 @@ const Post = (props) => {
     }
   };
 
+  // Function to handle adding favourite by using the post id and adding a favourite id
   const handleFavourite = async () => {
     try {
       const { data } = await axiosRes.post("/favourites/", { post: id });
@@ -129,6 +139,7 @@ const Post = (props) => {
     }
   };
 
+  // Function to handle removing a favourite by removing the favourite id
   const handleRemoveFavourite = async () => {
     try {
       await axiosRes.delete(`/favourites/${favourite_id}/`);
@@ -162,6 +173,7 @@ const Post = (props) => {
           <div className="d-flex align-items-center">
             {category && (
               <h3>
+                {/* Uses the camelcase function with the post pills */}
                 <Badge className={styles.categoryBadge} pill>
                   {camelcase(category)}
                 </Badge>
@@ -242,6 +254,7 @@ const Post = (props) => {
         {description && (
           <Card.Text className="text-left">{description}</Card.Text>
         )}
+        {/* Displays comment count and like count differently depending on the count*/}
         <Card.Text>
           {likes_count === 1
             ? `${likes_count} Like | `
@@ -255,6 +268,7 @@ const Post = (props) => {
           </Link>
         </Card.Text>
       </Card.Body>
+      {/* Modal to confirm deletion */}
       <ModalConfirmation
         handleMethod={handleDelete}
         show={showModal}

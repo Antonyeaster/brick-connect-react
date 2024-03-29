@@ -28,17 +28,24 @@ function PostEditForm() {
 
   const { title, description, image, category } = postData;
 
+  // Reference to the image input element
   const imageInput = useRef(null);
 
+  // The useHistory hook is used for navigation
   const history = useHistory();
+
+  // The useParams hook extracts parameters from the URL.
   const { id } = useParams();
 
+  // Use useEffect to fetch post data on component mount
   useEffect(() => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}/`);
         const { title, description, image, is_owner, category } = data;
 
+        // Check if the current user is the post owner
+        // If they aren't redirect them to the home page
         is_owner
           ? setPostData({ title, description, image, category })
           : history.push("/");
@@ -49,14 +56,14 @@ function PostEditForm() {
 
     handleMount();
   }, [id, history]);
-
+  // function to handle form field changes
   const handleChange = (event) => {
     setPostData({
       ...postData,
       [event.target.name]: event.target.value,
     });
   };
-
+  // Function to handle the change of the image input
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -66,15 +73,17 @@ function PostEditForm() {
       });
     }
   };
-
+  // The function handle the form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
 
+    // Append the new title, description and category if there is one to the formData
     formData.append("title", title);
     formData.append("description", description);
     formData.append("category", category);
 
+    // If a new image is selected, append it to the FormData
     if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
     }
@@ -97,6 +106,7 @@ function PostEditForm() {
       <h4>Update your post!</h4>
       <hr />
       <Form.Group>
+        {/* Title */}
         <Form.Label>Title</Form.Label>
         <Form.Control
           type="text"
@@ -113,6 +123,7 @@ function PostEditForm() {
       ))}
 
       <Form.Group>
+        {/* Category */}
         <Form.Label>Category</Form.Label>
         <Form.Control
           as="select"
@@ -132,6 +143,7 @@ function PostEditForm() {
       ))}
 
       <Form.Group>
+        {/* Description */}
         <Form.Label>Description</Form.Label>
         <Form.Control
           as="textarea"
@@ -147,13 +159,15 @@ function PostEditForm() {
           {message}
         </Alert>
       ))}
-
+      {/* Cancel button */}
       <Button
         onClick={() => history.goBack()}
         className={`${btnStyles.Button} ${btnStyles.BlackButtonCustom} ${btnStyles.Black}`}
       >
         Cancel
       </Button>
+
+      {/* Save button */}
       <Button
         className={`${btnStyles.Button} ${btnStyles.BabyBlueButtonCustom} ${btnStyles.BabyBlue}`}
         type="submit"
@@ -186,6 +200,7 @@ function PostEditForm() {
                   Change the image
                 </Form.Label>
               </div>
+              {/* Input element so the user can select an image from their device */}
               <Form.File
                 className={styles.ChooseImage}
                 id="image-upload"

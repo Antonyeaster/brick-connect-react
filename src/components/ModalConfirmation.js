@@ -2,6 +2,8 @@ import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
+// Conmponent to recycle for rendering modals
+
 const ModalConfirmation = ({ handleMethod, show, setShow, body }) => {
   return (
     <Modal show={show} onHide={() => setShow(false)} keyboard={false}>

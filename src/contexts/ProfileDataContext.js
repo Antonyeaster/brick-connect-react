@@ -20,6 +20,10 @@ export const ProfileDataProvider = ({ children }) => {
 
   const currentUser = useCurrentUser();
 
+  /*
+    Handle the follow,
+    clickedprofile is the profile to follow
+   */
   const handleFollow = async (clickedProfile) => {
     try {
       const { data } = await axiosRes.post("/followers/", {
@@ -45,6 +49,10 @@ export const ProfileDataProvider = ({ children }) => {
     }
   };
 
+  /*
+    Handle the unfollow,
+    clickedprofile is the profile to unfollow
+   */
   const handleUnfollow = async (clickedProfile) => {
     try {
       await axiosRes.delete(`/followers/${clickedProfile.following_id}/`);
@@ -88,6 +96,7 @@ export const ProfileDataProvider = ({ children }) => {
     handleMount();
     // Fetches the profiles depending on each current user
   }, [currentUser]);
+
   return (
     <ProfileDataContext.Provider value={profileData}>
       <SetProfileDataContext.Provider
