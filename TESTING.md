@@ -113,6 +113,10 @@ The following bugs were identified during user testing:
 
 * There's a bug in the app that prevents it from working properly on Apple mobile devices and many browsers except Chrome. The issue occurs when users try to log in, they get redirected back to the login page. This happens because cookies aren't being saved in the local storage. To fix this bug on Safari, users need to turn off "Prevent Cross-Site Tracking" in settings. Interestingly, the app works fine on Safari on iPhone 12 and iPhone 14 Pro Max once this setting has been changed, but not on Chrome for iOS. This also occurs when using an incognito browser.
 
+* A small CSS bug causing a signed in user's comment thats been liked to have more margin. I noticed this on the day of submission. This doesn't break the site but still a bug. 
+
+* The CSS related to the deployed version of the admin panel does not process. The admin panel still works, but it's harder to navigate. This happened after a debugging session with the tutors, and they were under the impression it would return. As of submission day, it hasn't returned. The admin panel has all its styling in production, which is why this leads me to believe it's to do with Heroku.
+
 <hr>
 
 ## **Lighthouse**
