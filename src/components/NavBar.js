@@ -64,8 +64,8 @@ const NavBar = () => {
   );
 
   /*
-  Logged in icons, Feeds dropdown, Category dropdown,
-  Notifications, Profile username and sign out
+    Logged in icons, Feeds dropdown, Category dropdown,
+    Notifications, Profile username and sign out
   */
 
   const loggedInIcons = (
@@ -157,9 +157,7 @@ const NavBar = () => {
     </>
   );
 
-  /*
-  Logged out icons, Sign in, sign up, Home
-  */
+  // Logged out icons, Sign in, sign up, Home
 
   const loggedOutIcons = (
     <>

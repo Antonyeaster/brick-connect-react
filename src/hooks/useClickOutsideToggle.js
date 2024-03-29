@@ -1,16 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 
-  /*
-  Custom hook that handles the expanded state,
- */
+  //Custom hook that handles the expanded state
 
 const useClickOutsideToggle = () => {
   const [expanded, setExpanded] = useState(false);
   const ref = useRef(null);
   useEffect(() => {
-    /*
-      If the click event is triggered then set expanded changes to
-      false unless the click was on innerText of Category or Feeds.
+      /*
+        If the click event is triggered then set expanded changes to
+        false unless the click was on innerText of Category or Feeds.
      */
     const handleClickOutside = (event) => {
       const element = event.target;
