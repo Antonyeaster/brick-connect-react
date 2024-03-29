@@ -19,40 +19,46 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
-ThreeDots.displayName = 'ThreeDots';
+// Component for rendering a dropdown with more options.
+
+ThreeDots.displayName = "ThreeDots";
 
 export const EditDeleteDropdown = ({ handleEdit, handleDelete }) => {
   return (
-    <Dropdown className="ml-auto mr-2" drop="left">
-      <Dropdown.Toggle
-        as={ThreeDots}
-        id="dropdown-custom-components"
-      ></Dropdown.Toggle>
+    <OverlayTrigger placement="bottom" overlay={<Tooltip>Edit</Tooltip>}>
+      <Dropdown className="ml-auto mr-2" drop="left">
+        <Dropdown.Toggle
+          as={ThreeDots}
+          id="dropdown-custom-components"
+        ></Dropdown.Toggle>
 
-      <Dropdown.Menu
-        popperConfig={{ strategy: "fixed" }}
-        className="text-center"
-      >
-        <Dropdown.Item
-          className={styles.DropdownItem}
-          onClick={handleEdit}
-          aria-label="edit"
+        <Dropdown.Menu
+          popperConfig={{ strategy: "fixed" }}
+          className="text-center"
         >
-          <p>Edit</p>
-          <i className="fas fa-edit" />
-        </Dropdown.Item>
-        <Dropdown.Item
-          className={styles.DropdownItem}
-          onClick={handleDelete}
-          aria-label="delete"
-        >
-          <p>Delete</p>
-          <i className="fas fa-trash-alt" />
-        </Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
+          <Dropdown.Item
+            className={styles.DropdownItem}
+            onClick={handleEdit}
+            aria-label="edit"
+          >
+            <p>Edit</p>
+            <i className="fas fa-edit" />
+          </Dropdown.Item>
+          <Dropdown.Item
+            className={styles.DropdownItem}
+            onClick={handleDelete}
+            aria-label="delete"
+          >
+            <p>Delete</p>
+            <i className="fas fa-trash-alt" />
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+    </OverlayTrigger>
   );
 };
+
+// Specifically for profile dropdown
 
 export function ProfileEditDropdown({ id }) {
   const history = useHistory();

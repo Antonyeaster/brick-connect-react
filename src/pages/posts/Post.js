@@ -168,19 +168,10 @@ const Post = (props) => {
               </h3>
             )}
             {is_owner && postPage && (
-              <div>
-                <OverlayTrigger
-                  placement="bottom"
-                  overlay={<Tooltip>Edit</Tooltip>}
-                >
-                  <div>
-                    <EditDeleteDropdown
-                      handleEdit={handleEdit}
-                      handleDelete={handleShowModal}
-                    />
-                  </div>
-                </OverlayTrigger>
-              </div>
+              <EditDeleteDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleShowModal}
+              />
             )}
           </div>
         </Media>

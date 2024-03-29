@@ -141,16 +141,10 @@ const Comment = (props) => {
           // Displays the icons for edit and delete,
           // if edit is clicked the setShowEditForm state
           // changes to true
-          <div>
-            <OverlayTrigger placement="bottom" overlay={<Tooltip>Edit</Tooltip>}>
-              <div>
           <EditDeleteDropdown
             handleEdit={() => setShowEditForm(true)}
             handleDelete={handleShowModal}
           />
-          </div>
-          </OverlayTrigger>
-          </div>
         )}
       </Media>
       {is_owner ? (
