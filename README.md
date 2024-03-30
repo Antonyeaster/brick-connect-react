@@ -74,7 +74,7 @@ Brick Connect serves as a front-end component which is connected to the [Brick C
 * Have a search bar enabling the user to search for posts or other users.
 * Have profile information for the user to fill out an optional bio about themselves.
 * Connect seamlessly with the Brick Connect API back end.
-* Give registered users full access to the site, enabling them to create posts, comment on posts, like posts, like comments, favourite posts, and edit all previously listed.
+* Give registered users full access to the site, enabling them to create posts, comment on posts, like posts, like comments, favourite posts, receiving notifications and edit all previously listed.
 * Giving all users the chance to gain inspiration by being able to view all posts even when unregistered
 
 <hr>
@@ -654,4 +654,4 @@ Other sources include:
 
 ## Disclaimer
 
-* This project has been made for educational reasons. Any of the post images used have not been claimed as my own and have been referenced above.
+* This project has been made for educational purposes. Any of the post images used have not been claimed as my own and have been referenced above.

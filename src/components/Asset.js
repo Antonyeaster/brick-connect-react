@@ -3,8 +3,8 @@ import Spinner from "react-bootstrap/Spinner";
 import styles from "../styles/Asset.module.css";
 
 /*
-Component used across the site to display, a spinner, a image or a message
-if any of these props are passed in.
+  Component used across the site to display, a spinner, a image or a message
+  if any of these props are passed in.
 */
 const Asset = ({ spinner, src, message }) => {
   return (

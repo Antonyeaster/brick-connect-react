@@ -46,9 +46,8 @@ const Comment = (props) => {
     setShowModal(false);
   };
 
-  /*
-    Handles the addition of a comment like and adds 1 to the count
-  */
+  // Handles the addition of a comment like and adds 1 to the count
+  
   const handleCommentLike = async () => {
     try {
       const { data } = await axiosRes.post("/commentlike/", { comment: id });
@@ -69,9 +68,8 @@ const Comment = (props) => {
     }
   };
 
-  /*
-    Handles the deletion of a comment like and reduces the count by 1
-  */
+  // Handles the deletion of a comment like and reduces the count by 1
+
   const handleCommentUnlike = async () => {
     try {
       await axiosRes.delete(`/commentlike/${commentlike_id}/`);

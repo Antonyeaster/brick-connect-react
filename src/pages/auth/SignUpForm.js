@@ -17,9 +17,8 @@ import btnStyles from "../../styles/Button.module.css";
 import toast from "react-hot-toast";
 import { useRedirect } from "../../hooks/useRedirect";
 
-/*
-  Create the sign up form with username and password1 and password2 fields
-*/
+// Create the sign up form with username and password1 and password2 fields
+
 const SignUpForm = () => {
   useRedirect("loggedIn");
   const [signUpData, setSignUpData] = useState({
@@ -39,9 +38,9 @@ const SignUpForm = () => {
       [event.target.name]: event.target.value,
     });
   };
-    /*
-      This function makes a post request to Sign up once the user submits the form
-    */
+
+  // This function makes a post request to Sign up once the user submits the form
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

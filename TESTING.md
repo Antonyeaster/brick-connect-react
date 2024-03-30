@@ -276,6 +276,8 @@ I used [ESLint](https://eslint.org/) to test my code for the front-end. The foll
 ![ESLint screenshot](documentation/validation/eslint-testing-1.png)
 ![ESLint screenshot](documentation/validation/eslint-testing-2.png)
 
+* All the errors seen in the above screenshots are fixed on the next line, when the test is re-run.
+
 * The first error I encountered was to do with "'children' is missing in the props validation". This particular part of code was used with the Code Institute Moments walkthrough, for this reason and with the deadline approaching, I decided to create a rule to ignore this particular error.
 
 * The ESLint also picked up on the lines of text that I'd used with an apostrophe. This was a simple fix by just adding one of the options that ESLint provided. 
@@ -562,22 +564,21 @@ I used [ESLint](https://eslint.org/) to test my code for the front-end. The foll
 Automated testing was performed on the following files:
 
 * SignUpForm.js
-  * Tested If the page is rendering and if the placeholder text and button is diplaying.
+  * Tested if the page is rendering and if the placeholder text and button is displaying.
 * SignInForm.js
-  * Tested If the page is rendering and if the placeholder text and button is diplaying.
+  * Tested if the page is rendering and if the placeholder text and button is displaying.
 * Notifications.js
-  * Tested notifications for logged in users and if the page is rendering the notifications title.
+  * Tested notifications for signed in users and if the page is rendering the notifications title.
 * NotFound.js
   * Tested rendering by looking for the text
 * Asset.js
-  * Tested rendering the spinner by using a test id which i linked with the spinner in the Asset.js file.
+  * Tested rendering the spinner by using a test id which I linked with the spinner in the Asset.js file.
 * Navbar.js
   * Tested rendering the navbar, including rending the current user. Tested going through the modal and confirming sign out to be able to access the sign in and sign up text.
 
 ![Tests run](documentation/testing-screenshots/tests-run.png)
 ![Passed tests](documentation/testing-screenshots/passed-test.png)
 
-
-
+<hr>
 
 Back to [README](/README.md)
