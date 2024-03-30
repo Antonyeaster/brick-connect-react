@@ -226,14 +226,19 @@ const Post = (props) => {
             ) : (
               <OverlayTrigger
                 placement="top"
-                overlay={<Tooltip>Log in to like posts!</Tooltip>}
+                overlay={<Tooltip>Sign in to like posts!</Tooltip>}
               >
                 <i className={`far fa-heart mr-4 ${styles.Icon}`} />
               </OverlayTrigger>
             )}
-            <Link to={`/posts/${id}`} aria-label="Comments Icon">
-              <i className={`far fa-comments mr-4 ${styles.Icon}`} />
-            </Link>
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Sign in to make a comment!</Tooltip>}
+            >
+              <Link to={`/posts/${id}`} aria-label="Comments Icon">
+                <i className={`far fa-comments mr-4 ${styles.Icon}`} />
+              </Link>
+            </OverlayTrigger>
             {!is_owner && currentUser ? (
               <>
                 {favourite_id ? (
